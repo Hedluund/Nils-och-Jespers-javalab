@@ -5,6 +5,7 @@ public class Player {
 	private String name;
 	private int health=10;
 	private Location currentlocation;
+	public int Gold=100;
 	
 	public Player(String newName){
 		this.name=newName;
@@ -12,29 +13,47 @@ public class Player {
 	public String getName(){
 		return this.name;	
 	}
+	/* ändrar heatlh
+	 * 
+	 */
 	public void changeHealth(int dmg){
 		this.health= this.health+dmg;
 		if (health<0) {
 			health=0;
 		}
 	}
+	/*
+	 * ändrar spelarens location
+	 */
 	public void setLoc(Location newLocation){
 		this.currentlocation=newLocation;	
 	}
+	/*
+	 * skriver ut spelarens location
+	 */
 	public void printLoc(){
 		Location Test=this.currentlocation;
 		Test.getLocname();
 	}
-	
-	
-	public Location getLoc(){
-		
+	/* 
+	 * returnar spelarens
+	 */
+	public Location getLoc(){	
 		return this.currentlocation;
 	}
+	/*
+	 * 
+	 */
 	public int getHealth(){
 		return this.health;
-		
 	}
+	/*
+	 * vid ändring av guld. ex rån eller shopping
+	 */
+	public void changeGold(int change){
+		this.Gold= this.Gold+change;
+	}
+	
 	}
 	
 
