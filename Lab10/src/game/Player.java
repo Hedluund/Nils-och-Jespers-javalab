@@ -1,5 +1,6 @@
 package game;
 
+import game.Location;
 public class Player {
 	private String name;
 	private int health=10;
@@ -16,10 +17,15 @@ public class Player {
 		if (health<0) {
 			health=0;
 		}
+	}
 	public void setLoc(Location newLocation){
-		This.Location=newLocation;	
+		this.currentlocation=newLocation;	
+	}
+	public Location getLoc(){
+		return this.currentlocation;
+	
 	}
 	
 	}
 
-}
+
