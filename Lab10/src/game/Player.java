@@ -21,11 +21,22 @@ public class Player {
 	public void setLoc(Location newLocation){
 		this.currentlocation=newLocation;	
 	}
+	public void printLoc(){
+		Location Test=this.currentlocation;
+		getLocname(Test);
+	}
+	
+	
 	public Location getLoc(){
+		
 		return this.currentlocation;
-	
+	}
+	public int getHealth(){
+		return this.health;
+		
+	}
 	}
 	
-	}
+
 
 
