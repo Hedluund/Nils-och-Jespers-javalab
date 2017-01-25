@@ -24,10 +24,10 @@ public class Location {
 		this.paths[2] = south;
 		this.paths[3] = west;
 	}
-	public int checkPaths(String answer){
+	public int checkPaths(String answer, Location location){
 		int i = 0;
 		while (i < 4){
-			if (answer == directions[i]){
+			if (answer == directions[i] && location.paths[i]!=null){
 			return i;
 		}
 		i++;
