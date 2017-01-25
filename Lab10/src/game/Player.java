@@ -23,7 +23,7 @@ public class Player {
 	}
 	public void printLoc(){
 		Location Test=this.currentlocation;
-		getLocname(Test);
+		Test.getLocname();
 	}
 	
 	
