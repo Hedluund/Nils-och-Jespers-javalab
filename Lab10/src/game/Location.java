@@ -7,7 +7,7 @@ public class Location {
 	private String description2;
 	private Location[] paths = new Location[4];
 	private static String directions[] = { "north", "east", "south", "west" };
-	private boolean notbeenhere = true;
+	private boolean beenhere = false;
 
 	public Location(String name) {
 		this.name = name;
@@ -24,9 +24,17 @@ public class Location {
 		this.paths[2] = south;
 		this.paths[3] = west;
 	}
+	
+	public void setbeenhere(Boolean beenhere) {
+		this.beenhere = beenhere;
+	}
+	
+	public void getName(Location hehe) {
+		System.out.println(hehe.name);
+	}
 
 	public void describeYourself() {
-		if (this.notbeenhere) {
+		if (this.beenhere=false) {
 			System.out.println(this.description);
 		} else {
 			System.out.println(this.description2);
