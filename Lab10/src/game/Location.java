@@ -25,19 +25,19 @@ public class Location {
 		this.paths[3] = west;
 	}
 	
-	public void setbeenhere(Boolean beenhere) {
+	public void setBeenhere(Boolean beenhere) {
 		this.beenhere = beenhere;
 	}
 	
-	public void getName(Location hehe) {
-		System.out.println(hehe.name);
+	public void getLocname() {
+		System.out.println(this.name);
 	}
 
 	public void describeYourself() {
-		if (this.beenhere=false) {
-			System.out.println(this.description);
-		} else {
+		if (this.beenhere) {
 			System.out.println(this.description2);
+		} else {
+			System.out.println(this.description);
 		}
 
 		for (int i = 0; i < paths.length; i++) {
