@@ -24,6 +24,19 @@ public class Location {
 		this.paths[2] = south;
 		this.paths[3] = west;
 	}
+	public int checkPaths(String answer){
+		int i = 0;
+		while (i < 4){
+			if (answer == directions[i]){
+			return i;
+		}
+		i++;
+		}
+		return 4;	
+	}
+	public Location getNextloc(int pathNumber){
+		return this.paths[pathNumber];
+	}
 	
 	public void setBeenhere(Boolean beenhere) {
 		this.beenhere = beenhere;

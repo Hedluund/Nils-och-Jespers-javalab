@@ -1,11 +1,11 @@
-package game;
+/*package game;
 import game.Player;
 import game.Location;
 
 public class Playertest {
 	public static Location Hell, heaven;
 	public static Player adv;
-	public static void main(String[] args){
+	//*public static void main(String[] args){
 		Hell= new Location("opiater");
 	adv=new Player("Koksnisse");
 	System.out.println(adv.getName());
@@ -13,12 +13,7 @@ public class Playertest {
 	adv.changeHealth(6);
 	System.out.println(adv.getHealth());
 	adv.setLoc(Hell);
-	adv.printLoc();
-	System.out.println(adv.Gold);
-	adv.changeGold(-54);
-	System.out.println(adv.Gold);
-	
-	
-	
-	}
+	adv.printLoc();	
+	/} 
 }
+*/
