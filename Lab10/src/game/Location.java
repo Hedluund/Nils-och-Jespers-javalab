@@ -30,7 +30,7 @@ public class Location {
 	}
 	
 	public void getLocname() {
-		System.out.println(this.name);
+		System.out.println(name);
 	}
 
 	public void describeYourself() {
