@@ -1,4 +1,4 @@
-package game;
+/*package game;
 import game.Player;
 import game.Location;
 
@@ -14,5 +14,6 @@ public class Playertest {
 	System.out.println(adv.getHealth());
 	adv.setLoc(Hell);
 	adv.printLoc();	
-	/} */
+	/} 
 }
+*/
