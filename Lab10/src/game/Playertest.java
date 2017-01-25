@@ -14,6 +14,9 @@ public class Playertest {
 	System.out.println(adv.getHealth());
 	adv.setLoc(Hell);
 	adv.printLoc();
+	System.out.println(adv.Gold);
+	adv.changeGold(-54);
+	System.out.println(adv.Gold);
 	
 	
 	
