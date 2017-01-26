@@ -80,7 +80,7 @@ public class Maingame {
 			return true;
 		}
 		else if (User.getLoc().searchCommand(command)){
-			User.getLoc().doCommand(command);
+			//User.getLoc().doCommand(command);
 			return true;
 		}
 		else {
@@ -123,9 +123,6 @@ public class Maingame {
 	public static void main(String[] args){
 		Maingame spelet= new Maingame();
 		spelet.setStartLoc(spelet.MainUser,spelet.World.get(0));
-		spelet.Run(spelet);
-		
-		
-	}
-	
+		spelet.Run(spelet);		
+	}	
 }

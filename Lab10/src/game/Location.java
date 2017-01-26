@@ -1,7 +1,7 @@
 package game;
 import java.util.ArrayList;
 
-import apple.laf.JRSUIConstants.Size;
+//import apple.laf.JRSUIConstants.Size;
 
 public class Location {
 
