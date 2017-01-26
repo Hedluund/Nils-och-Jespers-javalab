@@ -18,11 +18,8 @@ public class Location {
 		this.description2 = description2;
 	}
 	
-	public Location(String name, String description, String description2) {
-		this.name = name;
-		this.description = description;
-		this.description2 = description2;
-	}
+
+	
 	public Boolean searchCommand(String Command) {
 		for(int i = 0; i < LocationCommands.size(); i++) {
 			if (Command.equals(LocationCommands.get(i))) {
