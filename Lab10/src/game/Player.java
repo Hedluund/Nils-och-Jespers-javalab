@@ -17,7 +17,7 @@ public class Player {
 	}
 
 	/*
-	 * ändrar heatlh
+	 * ï¿½ndrar heatlh
 	 * 
 	 */
 	public void changeHealth(int dmg) {
@@ -28,7 +28,7 @@ public class Player {
 	}
 
 	/*
-	 * ändrar spelarens location
+	 * ï¿½ndrar spelarens location
 	 */
 	public void setLoc(Location newLocation) {
 		this.currentlocation = newLocation;
@@ -57,7 +57,7 @@ public class Player {
 	}
 
 	/*
-	 * vid ändring av guld. ex rån eller shopping
+	 * vid ï¿½ndring av guld. ex rï¿½n eller shopping
 	 */
 	public void changeGold(int change) {
 		this.Gold = this.Gold + change;

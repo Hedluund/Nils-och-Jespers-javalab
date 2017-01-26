@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Maingame {
 	private Player MainUser ;
 	private Location[] World =new Location[5];
-	private String Command;
+	static Scanner userInput = new Scanner(System.in);
 	
 	
 	public Player createPlayer(){
@@ -76,30 +76,33 @@ public class Maingame {
 	
 	public void walkToOther(Player User){
 		System.out.print("So where do you want to go next?");
-		Scanner userInput = new Scanner(System.in);
-		Command = userInput.nextLine();
-		System.out.println(Command);
-		int checker = User.getLoc().checkPaths(Command, User.getLoc());
+//		Scanner userInput = new Scanner(System.in);
+		String input = userInput.nextLine();
+		System.out.println(input);
+		int checker = User.getLoc().checkPaths(input, User.getLoc());
 		System.out.println(checker);
 		while (checker==4){
 			System.out.println("Sorry, that's not a valid direction. Try again. you can always use the help command!");
-			checker=User.getLoc().checkPaths(userInput.nextLine(),User.getLoc());
+			checker = User.getLoc().checkPaths(userInput.nextLine(),User.getLoc());
 		}
-		User.setLoc(User.getLoc().getNextloc(checker));	
-		System.out.println(checker);
+		User.getLoc().setBeenhere();
+		User.setLoc(User.getLoc().getNextloc(checker));
 	}
 	
 	
 	public void Run(Player User){
 		User.getLoc().describeYourself();
-		walkToOther(User);	
 	}
 	
 	public static void main(String[] args){
 		Maingame spelet= new Maingame();
-		spelet.setStartLoc(spelet.MainUser,spelet.World[3]);
+		spelet.setStartLoc(spelet.MainUser,spelet.World[0]);
+		int i = 0;
+		while (i <100) {
 		spelet.Run(spelet.MainUser);
 		spelet.walkToOther(spelet.MainUser);
+		i++;
+		}
 	}
 	
 }

@@ -29,7 +29,7 @@ public class Location {
 	public int checkPaths(String answer, Location location){
 		int i = 0;
 		while (i < 4){
-			if (answer == directions[i] && location.paths[i]!=null){
+			if (answer.equals(directions[i]) && location.paths[i]!=null){
 			return i;
 		}
 		i++;
@@ -40,8 +40,8 @@ public class Location {
 		return this.paths[pathNumber];
 	}
 	
-	public void setBeenhere(Boolean beenhere) {
-		this.beenhere = beenhere;
+	public void setBeenhere() {
+		this.beenhere = false;
 	}
 	
 	public boolean getBeenhere(){
