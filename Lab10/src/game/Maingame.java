@@ -11,6 +11,11 @@ public class Maingame {
 	static Scanner userInput = new Scanner(System.in);
 	private ArrayList<Location> World = new ArrayList<Location>();
 	
+
+	public Maingame(){
+		this.MainUser = createPlayer();
+		this.World = setWorld();	
+	}
 	
 	public Player createPlayer(){
 		System.out.print("Please state your name!");
@@ -59,18 +64,7 @@ public class Maingame {
 		return World;
 
 	}	
-	/*
-	 * konstruktorn
-	 */
-	
-	public Maingame(){
-		this.MainUser = createPlayer();
-		this.World = setWorld();	
-	}
-
-	public void setStartLoc(Player User,Location Start){
-		User.setLoc(Start);
-	}
+		
 	public boolean whatToDo(Player User){	
 		String command = userInput.nextLine();
 		int checker = User.getLoc().checkPaths(command,User.getLoc());
@@ -87,25 +81,7 @@ public class Maingame {
 			return false;
 		}
 	}
-	
-	
-	//public Player getPlayer()
-	/*
-	public void walkToOther(Player User){
-		System.out.print("So where do you want to go next?");
-		String input = userInput.nextLine();
-		//sök på command-list sen if
-		int checker = User.getLoc().checkPaths(input, User.getLoc());
-		while (checker==4){
-			System.out.println("Sorry, that's not a valid command. Try again. you can always use the help command!");
-			checker = User.getLoc().checkPaths(userInput.nextLine(),User.getLoc());
-		}
-		User.getLoc().setBeenhere();
-		User.setLoc(User.getLoc().getNextloc(checker));
-	}
-	*/
-	
-	public void Run(Maingame gamefield){
+	private void Run(Maingame gamefield){
 		String command="hej";
 		while(!command.equals("exit")){
 		gamefield.MainUser.getLoc().describeYourself();
@@ -114,12 +90,14 @@ public class Maingame {
 		while (!check){
 			check = whatToDo(gamefield.MainUser);
 			if (!check) {
-				System.out.println("unvalid command,din lourifax");
+				System.out.println("unvalid command");
 			}
 		}
 	}
 	}
-	
+	private void setStartLoc(Player User,Location Start){
+		User.setLoc(Start);
+	}
 	public static void main(String[] args){
 		Maingame spelet= new Maingame();
 		spelet.setStartLoc(spelet.MainUser,spelet.World.get(0));
