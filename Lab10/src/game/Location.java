@@ -74,11 +74,9 @@ public class Location {
 	public void getLocname() {
 		System.out.println(name);
 	}
-	public void doCommand(String command){
-		
-		
-		
-	}
+	//public abstract void doCommand(String command){
+		//FRÅGA OM SKITEN
+	//}
 	
 
 	public void describeYourself() {
