@@ -74,7 +74,7 @@ public class Maingame {
 	public String whatToDo(Location yourcurrentloc){
 		System.out.println("What do you want to do?");	
 		String command = userInput.nextLine();
-		if (yourcurrentloc.searchCommands()){
+		if (yourcurrentloc.searchCommand()){
 			yourcurrentloc.doCommand(command);
 		}
 	}
