@@ -6,6 +6,7 @@ public class Location {
 	private String description;
 	private String description2;
 	private Location[] paths = new Location[4];
+	private String locationCommands[];
 	private static String directions[] = { "north", "east", "south", "west" };
 	private boolean beenhere = true;
 
@@ -32,7 +33,7 @@ public class Location {
 			if (answer.equals(directions[i]) && location.paths[i]!=null){
 			return i;
 		}
-		i++;
+			i++;
 		}
 		return 4;	
 	}
@@ -59,7 +60,11 @@ public class Location {
 	public void getLocname() {
 		System.out.println(name);
 	}
-	
+	public void doCommand(String command){
+		
+		
+		
+	}
 	
 
 	public void describeYourself() {

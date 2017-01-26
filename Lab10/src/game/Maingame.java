@@ -71,6 +71,13 @@ public class Maingame {
 	public void setStartLoc(Player User,Location Start){
 		User.setLoc(Start);
 	}
+	public String whatToDo(Location yourcurrentloc){
+		System.out.println("What do you want to do?");	
+		String command = userInput.nextLine();
+		if (yourcurrentloc.searchCommands()){
+			yourcurrentloc.doCommand(command);
+		}
+	}
 	
 	
 	//public Player getPlayer()
@@ -89,18 +96,19 @@ public class Maingame {
 	}
 	
 	
-	public void Run(Player User){
-		User.getLoc().describeYourself();
+	public void Run(Maingame gamefield){
+		String command;
+		while(!command.equals("exit")){
+		gamefield.MainUser.getLoc().describeYourself();
+		
+		command=userInput.nextLine();
 	}
 	
 	public static void main(String[] args){
 		Maingame spelet= new Maingame();
 		spelet.setStartLoc(spelet.MainUser,spelet.World.get(0));
-		int i = 0;
-		while (i <100) {
-		spelet.Run(spelet.MainUser);
-		spelet.walkToOther(spelet.MainUser);
-		i++;
+		spelet.Run(spelet);
+		
 		}
 	}
 	
