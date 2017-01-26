@@ -5,21 +5,21 @@ import game.Location;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-
 public class Maingame {
-	private Player MainUser ;
+	private Player MainUser;
 	static Scanner userInput = new Scanner(System.in);
 	private ArrayList<Location> World = new ArrayList<Location>();
-	
-	
-	public Player createPlayer(){
+
+	public Player createPlayer() {
 		System.out.print("Please state your name!");
-		Scanner userInput= new Scanner(System.in);	
-		Player User=new Player(userInput.nextLine());
-		System.out.println("Hello " + User.getName()+"!Welcome to the world of NoJoria #<3/3?# Full of both scary creatures and wonderful places...");
+		Scanner userInput = new Scanner(System.in);
+		Player User = new Player(userInput.nextLine());
+		System.out.println("Hello " + User.getName()
+				+ "!Welcome to the world of NoJoria #<3/3?# Full of both scary creatures and wonderful places...");
 		return User;
-		
-	} 	
+
+	}
+
 	public ArrayList<Location> setWorld() {
 
 		Location Forest = new OutdoorsArea("Forbidden Forest",
@@ -49,67 +49,66 @@ public class Maingame {
 		Hometown.setPaths(Castle, Forest, Mountain, Pub);
 		Mountain.setPaths(Hometown, Forest, null, null);
 		Pub.setPaths(Castle, Hometown, null, null);
-		
+
 		World.add(Hometown);
 		World.add(Castle);
 		World.add(Forest);
 		World.add(Pub);
 		World.add(Mountain);
-		
+
 		return World;
 
-	}	
+	}
 	/*
 	 * konstruktorn
 	 */
-	
-	public Maingame(){
+
+	public Maingame() {
 		this.MainUser = createPlayer();
-		this.World = setWorld();	
+		this.World = setWorld();
 	}
 
-	public void setStartLoc(Player User,Location Start){
+	public void setStartLoc(Player User, Location Start) {
 		User.setLoc(Start);
 	}
-	public String whatToDo(Location yourcurrentloc){
-		System.out.println("What do you want to do?");	
+
+	public String whatToDo(Location yourcurrentloc) {
+		System.out.println("What do you want to do?");
 		String command = userInput.nextLine();
-		if (yourcurrentloc.searchCommand()){
+		if (yourcurrentloc.searchCommand()) {
 			yourcurrentloc.doCommand(command);
 		}
 	}
-	
-	
-	//public Player getPlayer()
-	
-	public void walkToOther(Player User){
+
+	// public Player getPlayer()
+
+	public void walkToOther(Player User) {
 		System.out.print("So where do you want to go next?");
 		String input = userInput.nextLine();
-		//sök på command-list sen if
+		// sök på command-list sen if
 		int checker = User.getLoc().checkPaths(input, User.getLoc());
-		while (checker==4){
+		while (checker == 4) {
 			System.out.println("Sorry, that's not a valid command. Try again. you can always use the help command!");
-			checker = User.getLoc().checkPaths(userInput.nextLine(),User.getLoc());
+			checker = User.getLoc().checkPaths(userInput.nextLine(), User.getLoc());
 		}
 		User.getLoc().setBeenhere();
 		User.setLoc(User.getLoc().getNextloc(checker));
 	}
-	
-	
-	public void Run(Maingame gamefield){
-		String command;
-		while(!command.equals("exit")){
-		gamefield.MainUser.getLoc().describeYourself();
-		
-		command=userInput.nextLine();
-	}
-	
-	public static void main(String[] args){
-		Maingame spelet= new Maingame();
-		spelet.setStartLoc(spelet.MainUser,spelet.World.get(0));
-		spelet.Run(spelet);
-		
+
+	public void Run(Maingame gamefield) {
+		String command = "Hej";
+		while (!command.equals("exit")) {
+			gamefield.MainUser.getLoc().describeYourself();
+			command = userInput.nextLine();
 		}
 	}
-	
+
+	public static void main(String[] args) {
+		Maingame spelet = new Maingame();
+		spelet.setStartLoc(spelet.MainUser, spelet.World.get(0));
+		spelet.Run(spelet);
+
+	}
+
 }
+command == command.split(\\" ");

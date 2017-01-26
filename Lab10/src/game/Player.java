@@ -1,12 +1,19 @@
 package game;
 
 import game.Location;
+import game.Items;
 
 public class Player {
 	private String name;
 	private int health = 10;
 	private Location currentlocation;
 	private int Gold = 100;
+	private Wearables Jacket;
+	
+	public void setJacket(Wearables Jacket) {
+		this.Jacket=Jacket;
+	}
+	
 
 	public Player(String newName) {
 		this.name = newName;

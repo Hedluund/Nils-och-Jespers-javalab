@@ -14,6 +14,12 @@ public class Location {
 	private ArrayList<String> LocationCommands = new ArrayList<String>();
 	private boolean beenhere = true;
 	
+	public Location(String name, String description, String description2) {
+		this.name = name;
+		this.description = description;
+		this.description2 = description2;
+	}
+	
 	
 	public Boolean searchCommand(String Command) {
 		for(int i = 0; i < LocationCommands.size(); i++) {
@@ -24,11 +30,6 @@ public class Location {
 		return false;
 	}
 	
-	public Location(String name, String description, String description2) {
-		this.name = name;
-		this.description = description;
-		this.description2 = description2;
-	}
 
 	public void setPaths(Location north, Location east, Location south, Location west) {
 		this.paths[0] = north;
@@ -75,7 +76,7 @@ public class Location {
 		System.out.println(name);
 	}
 	//public abstract void doCommand(String command){
-		//FRÅGA OM SKITEN
+		//FRÅGA
 	//}
 	
 
