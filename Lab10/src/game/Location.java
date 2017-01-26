@@ -21,6 +21,11 @@ public class Location {
 		this.paths[2] = south;
 		this.paths[3] = west;
 	}
+	
+	public Location[] getPaths() {
+		return paths;
+	}
+	
 	public int checkPaths(String answer, Location location){
 		int i = 0;
 		while (i < 4){
@@ -47,7 +52,9 @@ public class Location {
 		return description;
 	}
 	
-	
+	public String getDescription2() {
+		return description2;
+	}
 	
 	public void getLocname() {
 		System.out.println(name);

@@ -3,19 +3,21 @@ import game.Location;
 
 public class OutdoorsArea extends Location {
 	private String weather;
+	private static String directions[] = { "north", "east", "south", "west" };
 
 	public OutdoorsArea(String name, String description, String description2, String weather) {
 		super(name, description, description2);
 		this.weather=weather;
+	}
 
 	public void describeYourself() {
 		if (getBeenhere()) {
-			System.out.println(this.description2);
+			System.out.println(getDescription());
 		} else {
-			System.out.println(this.description);
+			System.out.println(getDescription2());
 		}
-		for (int i = 0; i < paths.length; i++) {
-			if (paths[i] != null) {
+		for (int i = 0; i < getPaths().length; i++) {
+			if (getPaths()[i] != null) {
 				System.out.println("There is a road leading " + directions[i]);
 			}
 		}

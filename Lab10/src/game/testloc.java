@@ -5,14 +5,16 @@ public class testloc {
 	
 	public static void main(String[] args) {
 		
-		Location Hell = new Location("Hell");
-		Location Mount = new Location("Mount"); 
+		Location Hell = new OutdoorsArea("Hell","brinn", "hej","sun");
+		Location Mount = new Room("Mount","brinn", "hej", "bright"); 
 		
-		Hell.setDescription("brinn", "hej");
+		
 		Hell.setPaths(Mount, null, Hell, null);
+		Mount.setPaths(Mount, null, Hell, null);
 	
 	
 	Hell.describeYourself();
+	Mount.describeYourself();
 	
 }
 }
