@@ -97,7 +97,7 @@ public class Maingame {
 		Maingame spelet= new Maingame();
 		spelet.setStartLoc(spelet.MainUser,spelet.World.get(0));
 		int i = 0;
-		while (i <100) {
+		while (i < 100) {
 		spelet.Run(spelet.MainUser);
 		spelet.walkToOther(spelet.MainUser);
 		i++;

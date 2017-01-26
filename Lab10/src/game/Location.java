@@ -1,4 +1,7 @@
 package game;
+import java.util.ArrayList;
+
+import apple.laf.JRSUIConstants.Size;
 
 public class Location {
 
@@ -7,8 +10,19 @@ public class Location {
 	private String description2;
 	private Location[] paths = new Location[4];
 	private static String directions[] = { "north", "east", "south", "west" };
+	private ArrayList<String> LocationCommands = new ArrayList<String>();
 	private boolean beenhere = true;
-
+	
+	
+	public Boolean searchCommand(String Command) {
+		for(int i = 0; i < LocationCommands.size(); i++) {
+			if (Command.equals(LocationCommands.get(i))) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public Location(String name, String description, String description2) {
 		this.name = name;
 		this.description = description;
