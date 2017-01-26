@@ -1,4 +1,4 @@
-package game;
+
 
 import game.Player;
 import game.Location;
@@ -9,8 +9,17 @@ public class Maingame {
 	private Player MainUser;
 	static Scanner userInput = new Scanner(System.in);
 	private ArrayList<Location> World = new ArrayList<Location>();
+	
+	
+	public Player createPlayer(){
+	
 
-	public Player createPlayer() {
+	public Maingame(){
+		this.MainUser = createPlayer();
+		this.World = setWorld();	
+	}
+	
+	public Player createPlayer(){
 		System.out.print("Please state your name!");
 		Scanner userInput = new Scanner(System.in);
 		Player User = new Player(userInput.nextLine());
@@ -58,57 +67,92 @@ public class Maingame {
 
 		return World;
 
-	}
+	}	
 	/*
 	 * konstruktorn
 	 */
-
-	public Maingame() {
+	
+	public Maingame(){
 		this.MainUser = createPlayer();
-		this.World = setWorld();
+		this.World = setWorld();	
 	}
 
-	public void setStartLoc(Player User, Location Start) {
+	public void setStartLoc(Player User,Location Start){
 		User.setLoc(Start);
 	}
-
-	public String whatToDo(Location yourcurrentloc) {
-		System.out.println("What do you want to do?");
+	public String whatToDo(Location yourcurrentloc){
+		System.out.println("What do you want to do?");	
+	}	
+		
+	public boolean whatToDo(Player User){	
 		String command = userInput.nextLine();
-		if (yourcurrentloc.searchCommand()) {
+		if (yourcurrentloc.searchCommand()){
 			yourcurrentloc.doCommand(command);
+		int checker = User.getLoc().checkPaths(command,User.getLoc());
+		if (checker!=4){
+			User.getLoc().setBeenhere();
+			User.setLoc(User.getLoc().getNextloc(checker));	
+			return true;
 		}
 	}
-
-	// public Player getPlayer()
-
-	public void walkToOther(Player User) {
+	
+	
+	//public Player getPlayer()
+	
+	public void walkToOther(Player User){
 		System.out.print("So where do you want to go next?");
 		String input = userInput.nextLine();
-		// sök på command-list sen if
+		//sök på command-list sen if
 		int checker = User.getLoc().checkPaths(input, User.getLoc());
-		while (checker == 4) {
+		while (checker==4){
 			System.out.println("Sorry, that's not a valid command. Try again. you can always use the help command!");
-			checker = User.getLoc().checkPaths(userInput.nextLine(), User.getLoc());
+			checker = User.getLoc().checkPaths(userInput.nextLine(),User.getLoc());
+		else if (User.getLoc().searchCommand(command)){
+			//User.getLoc().doCommand(command);
+			return true;
 		}
-		User.getLoc().setBeenhere();
-		User.setLoc(User.getLoc().getNextloc(checker));
-	}
-
-	public void Run(Maingame gamefield) {
-		String command = "Hej";
-		while (!command.equals("exit")) {
-			gamefield.MainUser.getLoc().describeYourself();
-			command = userInput.nextLine();
+		else {
+			return false;
 		}
 	}
-
-	public static void main(String[] args) {
-		Maingame spelet = new Maingame();
-		spelet.setStartLoc(spelet.MainUser, spelet.World.get(0));
+	
+	
+	public void Run(Maingame gamefield){
+		String command;
+		while(!command.equals("exit")){
+		gamefield.MainUser.getLoc().describeYourself();
+		
+		command=userInput.nextLine();
+	private void Run(Maingame gamefield){
+		String command="hej";
+		while(!command.equals("exit")){
+		gamefield.MainUser.getLoc().describeYourself();
+		System.out.println("What do you want to do?");
+		boolean check =false;
+		while (!check){
+			check = whatToDo(gamefield.MainUser);
+			if (!check) {
+				System.out.println("unvalid command");
+			}
+		}
+	}
+	
+	public static void main(String[] args){
+		Maingame spelet= new Maingame();
+		spelet.setStartLoc(spelet.MainUser,spelet.World.get(0));
 		spelet.Run(spelet);
-
+		
+		}
 	}
-
+	
+	}
+	private void setStartLoc(Player User,Location Start){
+		User.setLoc(Start);
+	}
+	public static void main(String[] args){
+		Maingame spelet= new Maingame();
+		spelet.setStartLoc(spelet.MainUser,spelet.World.get(0));
+		spelet.Run(spelet);		
+	}	
 }
 command == command.split(\\" ");
