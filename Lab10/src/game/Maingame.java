@@ -3,11 +3,13 @@ package game;
 import game.Player;
 import game.Location;
 import java.util.Scanner;
+import java.util.ArrayList;
+
 
 public class Maingame {
 	private Player MainUser ;
-	private Location[] World =new Location[5];
 	static Scanner userInput = new Scanner(System.in);
+	private ArrayList<Location> World = new ArrayList<Location>();
 	
 	
 	public Player createPlayer(){
@@ -18,18 +20,17 @@ public class Maingame {
 		return User;
 		
 	} 	
-	public Location[] setWorld() {
-		Location[] World = new Location[5];
+	public ArrayList<Location> setWorld() {
 
 		Location Forest = new OutdoorsArea("Forbidden Forest",
 				"You are now in the Forbidden Forest. The legend says that the trees in this forest get their strength from the suffering of the thousand men who have lost their lives here",
-				"Welcome back to the Forbidden Forest, hmm, you get a really strange feeling that the trees seems to be talking",
+				"Welcome back to the Forbidden Forest, hmm, you get a really strange feeling that the trees seems to be talking. ",
 				"Misty");
 
 		Location Castle = new Room("Castle Black",
-				"You are now at Castle Black, the utter defense of NoJoria against. Beyond the castle there are creatures that not even your wildest fantasy can picture. The men seems a bit frightenend but hopefully, Lord Commander Snow can found courage in them",
-				"You are now at Castle Black. Lord Snow seems a bit worried about the loyalty of his men",
-				"The castle is dark. Only a strim of light comes from candles");
+				"You are now at Castle Black, the utter defense of NoJoria. Beyond the castle there are creatures that not even your wildest fantasy can picture. The men seems a bit frightenend but hopefully, Lord Commander Snow can found courage in them. ",
+				"You are now at Castle Black. Lord Snow seems a bit worried about the loyalty of his men. ",
+				"The castle is very dark. ");
 
 		Location Hometown = new OutdoorsArea("Karakorum",
 				"Welcome to the captial city of NoJoria, Karakorum. The great Khan Ghengis rules this city with an iron fist. You better watch your tounge!",
@@ -48,13 +49,13 @@ public class Maingame {
 		Hometown.setPaths(Castle, Forest, Mountain, Pub);
 		Mountain.setPaths(Hometown, Forest, null, null);
 		Pub.setPaths(Castle, Hometown, null, null);
-
-		World[0] = Hometown;
-		World[1] = Castle;
-		World[2] = Forest;
-		World[3] = Mountain;
-		World[4] = Pub;
-
+		
+		World.add(Hometown);
+		World.add(Castle);
+		World.add(Forest);
+		World.add(Pub);
+		World.add(Mountain);
+		
 		return World;
 
 	}	
@@ -64,7 +65,7 @@ public class Maingame {
 	
 	public Maingame(){
 		this.MainUser = createPlayer();
-		this.World=setWorld();	
+		this.World = setWorld();	
 	}
 
 	public void setStartLoc(Player User,Location Start){
@@ -76,13 +77,11 @@ public class Maingame {
 	
 	public void walkToOther(Player User){
 		System.out.print("So where do you want to go next?");
-//		Scanner userInput = new Scanner(System.in);
 		String input = userInput.nextLine();
-		System.out.println(input);
+		//sök på command-list sen if
 		int checker = User.getLoc().checkPaths(input, User.getLoc());
-		System.out.println(checker);
 		while (checker==4){
-			System.out.println("Sorry, that's not a valid direction. Try again. you can always use the help command!");
+			System.out.println("Sorry, that's not a valid command. Try again. you can always use the help command!");
 			checker = User.getLoc().checkPaths(userInput.nextLine(),User.getLoc());
 		}
 		User.getLoc().setBeenhere();
@@ -96,7 +95,7 @@ public class Maingame {
 	
 	public static void main(String[] args){
 		Maingame spelet= new Maingame();
-		spelet.setStartLoc(spelet.MainUser,spelet.World[0]);
+		spelet.setStartLoc(spelet.MainUser,spelet.World.get(0));
 		int i = 0;
 		while (i <100) {
 		spelet.Run(spelet.MainUser);

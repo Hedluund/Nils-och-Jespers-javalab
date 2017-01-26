@@ -12,9 +12,9 @@ public class OutdoorsArea extends Location {
 
 	public void describeYourself() {
 		if (getBeenhere()) {
-			System.out.println(getDescription());
+			System.out.println(getDescription() + " Current weather: " + this.weather);
 		} else {
-			System.out.println(getDescription2());
+			System.out.println(getDescription2() + " Current weather: " + this.weather);
 		}
 		for (int i = 0; i < getPaths().length; i++) {
 			if (getPaths()[i] != null) {
