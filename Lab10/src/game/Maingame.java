@@ -71,17 +71,26 @@ public class Maingame {
 	public void setStartLoc(Player User,Location Start){
 		User.setLoc(Start);
 	}
-	public String whatToDo(Location yourcurrentloc){
-		System.out.println("What do you want to do?");	
+	public boolean whatToDo(Player User){	
 		String command = userInput.nextLine();
-		if (yourcurrentloc.searchCommand()){
-			yourcurrentloc.doCommand(command);
+		int checker = User.getLoc().checkPaths(command,User.getLoc());
+		if (checker!=4){
+			User.getLoc().setBeenhere();
+			User.setLoc(User.getLoc().getNextloc(checker));	
+			return true;
+		}
+		else if (User.getLoc().searchCommand(command)){
+			User.getLoc().doCommand(command);
+			return true;
+		}
+		else {
+			return false;
 		}
 	}
 	
 	
 	//public Player getPlayer()
-	
+	/*
 	public void walkToOther(Player User){
 		System.out.print("So where do you want to go next?");
 		String input = userInput.nextLine();
@@ -94,14 +103,21 @@ public class Maingame {
 		User.getLoc().setBeenhere();
 		User.setLoc(User.getLoc().getNextloc(checker));
 	}
-	
+	*/
 	
 	public void Run(Maingame gamefield){
-		String command;
+		String command="hej";
 		while(!command.equals("exit")){
 		gamefield.MainUser.getLoc().describeYourself();
-		
-		command=userInput.nextLine();
+		System.out.println("What do you want to do?");
+		boolean check =false;
+		while (!check){
+			check = whatToDo(gamefield.MainUser);
+			if (!check) {
+				System.out.println("unvalid command,din lourifax");
+			}
+		}
+	}
 	}
 	
 	public static void main(String[] args){
@@ -109,7 +125,7 @@ public class Maingame {
 		spelet.setStartLoc(spelet.MainUser,spelet.World.get(0));
 		spelet.Run(spelet);
 		
-		}
+		
 	}
 	
 }
