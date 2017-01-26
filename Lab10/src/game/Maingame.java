@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Maingame {
 	private Player MainUser ;
 	private Location[] World =new Location[5];
+	private String Command;
 	
 	
 	public Player createPlayer(){
@@ -76,12 +77,16 @@ public class Maingame {
 	public void walkToOther(Player User){
 		System.out.print("So where do you want to go next?");
 		Scanner userInput = new Scanner(System.in);
-		int checker=User.getLoc().checkPaths(userInput.nextLine(),User.getLoc());
+		Command = userInput.nextLine();
+		System.out.println(Command);
+		int checker = User.getLoc().checkPaths(Command, User.getLoc());
+		System.out.println(checker);
 		while (checker==4){
 			System.out.println("Sorry, that's not a valid direction. Try again. you can always use the help command!");
 			checker=User.getLoc().checkPaths(userInput.nextLine(),User.getLoc());
 		}
 		User.setLoc(User.getLoc().getNextloc(checker));	
+		System.out.println(checker);
 	}
 	
 	
