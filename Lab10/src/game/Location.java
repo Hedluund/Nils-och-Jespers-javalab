@@ -9,11 +9,8 @@ public class Location {
 	private static String directions[] = { "north", "east", "south", "west" };
 	private boolean beenhere = false;
 
-	public Location(String name) {
+	public Location(String name, String description, String description2) {
 		this.name = name;
-	}
-	
-	public void setDescription(String description, String description2) {
 		this.description = description;
 		this.description2 = description2;
 	}
@@ -42,9 +39,21 @@ public class Location {
 		this.beenhere = beenhere;
 	}
 	
+	public boolean getBeenhere(){
+		return beenhere;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	
+	
 	public void getLocname() {
 		System.out.println(name);
 	}
+	
+	
 
 	public void describeYourself() {
 		if (this.beenhere) {

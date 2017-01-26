@@ -8,11 +8,6 @@ public class Maingame {
 	private Player MainUser ;
 	private Location[] World =new Location[4];
 	
-	public Maingame(){
-		this.MainUser=createPlayer();
-		//createWorld();
-	
-	}
 	
 	public Player createPlayer(){
 		System.out.print("Please state your name!");
@@ -22,6 +17,13 @@ public class Maingame {
 		return User;
 		
 	} 	
+	
+	public Maingame(){
+		this.MainUser = createPlayer();
+		//createWorld();
+	
+	}
+
 	//public Player getPlayer()
 	
 	public void walkToOther(Player User){
