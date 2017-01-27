@@ -12,11 +12,6 @@ public class Wearables extends Items {
 	}
 
 	public void doCommand(String action, String item) {
+		
 	}
-
-	public void putOn(Player user, Wearables item) {
-		user.setJacket(item);
-		user.changeHealth(item.healthInc);
-	}
-
 }
