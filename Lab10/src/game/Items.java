@@ -11,6 +11,10 @@ public abstract class Items {
 		this.weight = weight;
 	}
 	
+	public String getItemName(Items item) {
+		return this.name;
+	}
+	
 	public void printYourself() {
 		System.out.println("You see: " + name);
 		System.out.println("It weighs: " + weight);

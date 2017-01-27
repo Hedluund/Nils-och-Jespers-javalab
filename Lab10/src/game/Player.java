@@ -1,6 +1,7 @@
 package game;
 
 import game.Location;
+import java.util.ArrayList;
 import game.Items;
 
 public class Player {
@@ -9,20 +10,26 @@ public class Player {
 	private Location currentlocation;
 	private int Gold = 100;
 	private Wearables Jacket;
-	
-	public void setJacket(Wearables Jacket) {
-		this.Jacket=Jacket;
-	}
-	
+	private ArrayList<Items> currentItems = new ArrayList<Items>();
 
 	public Player(String newName) {
 		this.name = newName;
 	}
 
-	public String getName() {
-		return this.name;
+	 public Boolean itemExist(String item, ArrayList<Items> currentItems){
+		for(int i =0; i < currentItems.size(); i++) {
+			if (this.currentItems.get(i).getItemName(currentItems.get(i)).equals(item)) {
+				return true;
+			}
+		} 
+		return false;
 	}
-
+	 
+	
+	public void setWearable(Wearables item) {
+		this.Jacket = item;	
+	}
+	 
 	/*
 	 * �ndrar heatlh
 	 * 
@@ -32,6 +39,10 @@ public class Player {
 		if (health < 0) {
 			health = 0;
 		}
+	}
+
+	public String getName() {
+		return this.name;
 	}
 
 	/*
@@ -68,7 +79,9 @@ public class Player {
 	 */
 	public void changeGold(int change) {
 		this.Gold = this.Gold + change;
+		
 	}
+	
 
 }
 

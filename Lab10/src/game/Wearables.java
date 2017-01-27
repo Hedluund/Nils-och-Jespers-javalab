@@ -10,8 +10,13 @@ public class Wearables extends Items {
 		super(name, weight);
 		this.healthInc = healthInc;
 	}
-
-	public void doCommand(String action, String item) {
-		
+	
+	public void putOn(Player user) {
+		user.setWearable(this);
+		user.changeHealth(this.healthInc);
 	}
-}
+	
+	public void doCommand(String action, String item) {			
+		}
+	}
+
