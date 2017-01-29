@@ -4,6 +4,7 @@ import game.Location;
 
 public class Room extends Location {
 	private boolean canDigHere = false;
+	private boolean haveDugHere = false;
 	String Brightness;
 	private static String directions[] = { "north", "east", "south", "west" };
 

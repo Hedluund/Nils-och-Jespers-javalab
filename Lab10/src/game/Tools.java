@@ -12,6 +12,7 @@ public class Tools extends Items {
 		}
 		else if (action.equals("dig") && user.getLoc().canIDigHere() && !user.getLoc().haveIDugHere()) {
 			user.getLoc().digHere();
+			System.out.println("Du har grävt");
 		}
 	}
 
