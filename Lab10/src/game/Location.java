@@ -7,9 +7,9 @@ public class Location {
 	private String description;
 	private String description2;
 	private Location[] paths = new Location[4];
-	private String locationCommands[];
 	private static String directions[] = { "north", "east", "south", "west" };
 	private ArrayList<String> LocationCommands = new ArrayList<String>();
+	private ArrayList<Items> LocationItems = new ArrayList<Items>();
 	private boolean beenhere = true;
 	
 	public Location(String name, String description, String description2) {
@@ -19,22 +19,14 @@ public class Location {
 	}
 	
 
-	
-	public Boolean searchCommand(String Command) {
-		for(int i = 0; i < LocationCommands.size(); i++) {
-			if (Command.equals(LocationCommands.get(i))) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
 	public void setPaths(Location north, Location east, Location south, Location west) {
 		this.paths[0] = north;
 		this.paths[1] = east;
 		this.paths[2] = south;
 		this.paths[3] = west;
 	}
+	
+	public void setLocationItems
 	
 	public Location[] getPaths() {
 		return paths;

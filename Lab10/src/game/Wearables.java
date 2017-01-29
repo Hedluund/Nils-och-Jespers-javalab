@@ -16,7 +16,7 @@ public class Wearables extends Items {
 		user.changeHealth(this.healthInc);
 	}
 	
-	public void doCommand(String action, String item) {			
+	public void doCommand(String action, Player user) {			
 		}
 	}
 

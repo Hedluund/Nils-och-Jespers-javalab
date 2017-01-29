@@ -6,7 +6,7 @@ public class Tools extends Items {
 		super(name, weight);
 	}
 
-	public void doCommand(String action, String item) {
+	public void doCommand(String action, Player user) {
 	}
 
 }
