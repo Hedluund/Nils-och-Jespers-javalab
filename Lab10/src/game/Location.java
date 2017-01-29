@@ -12,6 +12,7 @@ public class Location {
 	private ArrayList<Items> LocationItems = new ArrayList<Items>();
 	private boolean beenhere = true;
 	
+	
 	public Location(String name, String description, String description2) {
 		this.name = name;
 		this.description = description;
@@ -26,7 +27,6 @@ public class Location {
 		this.paths[3] = west;
 	}
 	
-	public void setLocationItems
 	
 	public Location[] getPaths() {
 		return paths;
@@ -65,7 +65,7 @@ public class Location {
 	public void getLocname() {
 		System.out.println(name);
 	}
-	public void doCommand(Player Spelare, String command){
+	public boolean doCommand(String command, Player spelare){
 		if (command.equals("help")){
 			for (int i =0;i<4;i++){
 				if (this.paths[i]!=null){
@@ -75,7 +75,12 @@ public class Location {
 			for(int i =0;i<this.LocationCommands.size();i++){
 				System.out.println(LocationCommands.get(i));
 			}
+			return true;
+		}else if (command.equals("look")) {
+			System.out.println(this.description);
+			return true;
 		}
+		return false;
 	}
 	public void describeYourself() {
 		if (this.beenhere !=true) {

@@ -7,6 +7,7 @@ public class Tools extends Items {
 	}
 
 	public void doCommand(String action, Player user) {
+
 	}
 
 }

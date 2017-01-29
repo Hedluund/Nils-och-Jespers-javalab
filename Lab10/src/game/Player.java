@@ -11,6 +11,7 @@ public class Player {
 	private int Gold = 100;
 	private Wearables Jacket;
 	private ArrayList<Items> currentItems = new ArrayList<Items>();
+	private Boolean TorchLit = false;
 
 	public Player(String newName) {
 		this.name = newName;
@@ -28,6 +29,10 @@ public class Player {
 	
 	public void setWearable(Wearables item) {
 		this.Jacket = item;	
+	}
+	
+	public void LightTorch() {
+		this.TorchLit = true;
 	}
 	 
 	/*
