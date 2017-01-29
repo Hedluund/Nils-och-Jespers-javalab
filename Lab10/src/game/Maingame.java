@@ -78,6 +78,9 @@ public class Maingame {
 		String command = userInput.nextLine();
 		boolean LocCom = User.getLoc().doCommand(command, User);
 		LocCom=User.doCommand(command, User);
+		for(int i = 0; i < User.getListLength(); i++){
+		User.getCurrentItems(i).doCommand(command, User);
+		}
 		int checker = User.getLoc().checkPaths(command,User.getLoc());
 		if (checker!=4 && !LocCom){
 			User.getLoc().setBeenhere();
@@ -87,6 +90,7 @@ public class Maingame {
 
 		return false;
 	}
+
 		
 
 

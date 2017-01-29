@@ -7,8 +7,8 @@ public class Tools extends Items {
 	}
 
 	public boolean doCommand(String action, Player user) {
-		if (action.equals("light torch")) {
-			user.LightTorch();
+		if (action.equals("light torch") && !user.isLit()) {
+			user.LightTorch(true);
 			System.out.println("Ljuuuuuuuuuus");
 			return true;
 		}
