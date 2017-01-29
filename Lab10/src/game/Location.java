@@ -1,7 +1,7 @@
 package game;
 import java.util.ArrayList;
 
-public class Location {
+public abstract class Location {
 
 	private String name;
 	private String description;
@@ -13,6 +13,8 @@ public class Location {
 	private boolean beenhere = true;
 	private boolean canDigHere;
 	private boolean haveDugHere;
+	
+	public abstract boolean possibleCommandDig();
 	
 	
 	public Location(String name, String description, String description2) {
@@ -79,15 +81,20 @@ public class Location {
 	public void getLocname() {
 		System.out.println(name);
 	}
+	
+	
 	public boolean doCommand(String command, Player spelare){
 		if (command.equals("help")){
+			System.out.println("These are the directions you can travel in: ");
 			for (int i =0;i<4;i++){
 				if (this.paths[i]!=null){
 					System.out.println(directions[i]);
 				}
 			}
-			for(int i =0;i<this.LocationCommands.size();i++){
-				System.out.println(LocationCommands.get(i));
+			System.out.println("Other possible commands: ");
+			System.out.println("items");
+			if (spelare.getLoc().possibleCommandDig()){
+				System.out.println("dig");
 			}
 			return true;
 		}else if (command.equals("look")) {

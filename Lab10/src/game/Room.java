@@ -11,6 +11,13 @@ public class Room extends Location {
 		super(name, description, description2);
 		this.Brightness = Brightness;
 	}
+	public boolean possibleCommandDig(){
+		if (this.canDigHere){
+			return true;
+		}else{
+				return false;		
+		}
+	} 
 
 	public void describeYourself() {
 		if (getBeenhere()) {

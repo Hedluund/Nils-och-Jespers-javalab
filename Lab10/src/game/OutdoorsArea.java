@@ -11,6 +11,13 @@ public class OutdoorsArea extends Location {
 		super(name, description, description2);
 		this.weather=weather;
 	}
+	public boolean possibleCommandDig(){
+		if (this.canDigHere && !this.haveDugHere){
+			return true;
+		}else{
+				return false;		
+		}
+	}
 
 	public void describeYourself() {
 		if (getBeenhere()) {
