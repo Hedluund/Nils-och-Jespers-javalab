@@ -56,6 +56,7 @@ public class Player {
 	public void setLoc(Location newLocation) {
 		this.currentlocation = newLocation;
 	}
+	
 
 	/*
 	 * skriver ut spelarens location
