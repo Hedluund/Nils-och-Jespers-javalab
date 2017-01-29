@@ -1,4 +1,4 @@
-package game;
+/*package game;
 import game.Location;
 import game.Player;
 import game.Maingame;
@@ -20,4 +20,4 @@ public class GameTest {
 	}
 	
 
-}
+}*/

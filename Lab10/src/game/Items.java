@@ -5,7 +5,7 @@ public abstract class Items {
 	private double weight;
 
 	
-	public abstract void doCommand(String action, Player user);
+	public abstract boolean doCommand(String action, Player user);
 	
 	public Items(String name, double weight) {
 		this.name = name;

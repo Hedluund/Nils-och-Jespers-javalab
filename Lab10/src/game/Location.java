@@ -100,6 +100,10 @@ public abstract class Location {
 		}else if (command.equals("look")) {
 			System.out.println(this.description);
 			return true;
+		}else if (command.equals("dig") && spelare.getLoc().possibleCommandDig()){
+			System.out.println("Du är en grävling");
+			spelare.getLoc().digHere();
+			return true;
 		}
 		return false;
 	}

@@ -76,6 +76,10 @@ public class Player {
 	/*
 	 * 
 	 */
+	public Items getItem(){
+		Items testitem = new Tools("spaden",23.0);
+		return testitem;
+	}
 	public int getHealth() {
 		return this.health;
 	}

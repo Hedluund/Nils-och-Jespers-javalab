@@ -6,14 +6,19 @@ public class Tools extends Items {
 		super(name, weight);
 	}
 
-	public void doCommand(String action, Player user) {
+	public boolean doCommand(String action, Player user) {
 		if (action.equals("light torch")) {
 			user.LightTorch();
+			return true;
 		}
-		else if (action.equals("dig") && user.getLoc().canIDigHere() && !user.getLoc().haveIDugHere()) {
+		else if (action.equals("dig")){// && user.getLoc().canIDigHere() && !user.getLoc().haveIDugHere()) {
 			user.getLoc().digHere();
 			System.out.println("Du har grävt");
-		}
+			return true;
+		}else
+			return false;
 	}
+		
+	
 
 }

@@ -18,6 +18,10 @@ public class OutdoorsArea extends Location {
 				return false;		
 		}
 	}
+	
+	public void digHere() {
+		this.haveDugHere=true;
+	}
 
 	public void describeYourself() {
 		if (getBeenhere()) {
