@@ -119,13 +119,8 @@ public abstract class Location {
 			spelare.getLoc().digHere();
 			}
 			return true;
-		}else if (command.equals("gold")){
-			System.out.println("You have got " + spelare.getGold() + " gold!");
-			return true;			
-		}else if(command.equals("health")){
-			System.out.println("Right now you have got " + spelare.getHealth()+" health");
-			return true;
 		}else{
+			
 		return false;
 		}
 	}

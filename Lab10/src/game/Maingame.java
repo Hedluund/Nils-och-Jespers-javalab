@@ -77,7 +77,7 @@ public class Maingame {
 	public boolean whatToDo(Player User){	
 		String command = userInput.nextLine();
 		boolean LocCom = User.getLoc().doCommand(command, User);
-		// =User.getItem().doCommand(command, User);
+		LocCom=User.doCommand(command, User);
 		int checker = User.getLoc().checkPaths(command,User.getLoc());
 		if (checker!=4 && !LocCom){
 			User.getLoc().setBeenhere();
