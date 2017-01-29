@@ -11,6 +11,8 @@ public class Location {
 	private ArrayList<String> LocationCommands = new ArrayList<String>();
 	private ArrayList<Items> LocationItems = new ArrayList<Items>();
 	private boolean beenhere = true;
+	private boolean canDigHere;
+	private boolean haveDugHere;
 	
 	
 	public Location(String name, String description, String description2) {
@@ -44,6 +46,18 @@ public class Location {
 	}
 	public Location getNextloc(int pathNumber){
 		return this.paths[pathNumber];
+	}
+	
+	public void digHere() {
+		this.haveDugHere=true;
+	}
+	
+	public boolean haveIDugHere() {
+		return this.haveDugHere;
+	}
+	
+	public boolean canIDigHere() {
+		return this.canDigHere;
 	}
 	
 	public void setBeenhere() {

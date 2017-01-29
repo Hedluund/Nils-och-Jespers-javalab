@@ -3,6 +3,7 @@ package game;
 public abstract class Items {
 	private String name;
 	private double weight;
+
 	
 	public abstract void doCommand(String action, Player user);
 	
@@ -14,6 +15,7 @@ public abstract class Items {
 	public String getItemName(Items item) {
 		return this.name;
 	}
+	
 	
 	public void printYourself() {
 		System.out.println("You see: " + name);

@@ -3,6 +3,7 @@ package game;
 import game.Location;
 
 public class Room extends Location {
+	private boolean canDigHere = false;
 	String Brightness;
 	private static String directions[] = { "north", "east", "south", "west" };
 

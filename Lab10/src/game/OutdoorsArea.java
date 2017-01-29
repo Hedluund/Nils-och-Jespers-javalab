@@ -2,6 +2,8 @@ package game;
 import game.Location;
 
 public class OutdoorsArea extends Location {
+	private boolean canDigHere = true;
+	private boolean haveDugHere = false;
 	private String weather;
 	private static String directions[] = { "north", "east", "south", "west" };
 
