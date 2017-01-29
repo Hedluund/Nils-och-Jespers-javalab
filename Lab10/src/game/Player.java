@@ -86,7 +86,16 @@ public class Player {
 		this.Gold = this.Gold + change;
 		
 	}
-	
+	public void doCommand(String command,Player spelare){
+		if (command.equals("items")){
+			System.out.print("These are your precious items: ");
+			for(int i=0;i<spelare.currentItems.size();i++){
+				System.out.println(spelare.currentItems.get(i).getItemName(spelare.currentItems.get(i)));
+				
+			}
+				
+		}
+	}
 
 }
 
