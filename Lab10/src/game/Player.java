@@ -9,30 +9,36 @@ public class Player {
 	private int health = 10;
 	private Location currentlocation;
 	private int Gold = 100;
-	private Wearables Jacket;
+	private boolean Jacket;
+	private boolean Ring;
 	private ArrayList<Items> currentItems = new ArrayList<Items>();
-	private Boolean TorchLit = false;
+	private Boolean TorchLit;
 
 	public Player(String newName) {
 		this.name = newName;
 	}
+	
 
-	 public Boolean itemExist(String item, ArrayList<Items> currentItems){
+	 public Items getPlayerWears(String item){
 		for(int i =0; i < currentItems.size(); i++) {
 			if (this.currentItems.get(i).getItemName(currentItems.get(i)).equals(item)) {
-				return true;
+				return this.currentItems.get(i);
 			}
 		} 
-		return false;
+		return null;
 	}
 	 
 	
-	public void setWearable(Wearables item) {
-		this.Jacket = item;	
-	}
-	
 	public void LightTorch() {
 		this.TorchLit = true;
+	}
+	
+	public void setJacket() {
+		this.Jacket=true;
+	}
+	
+	public void setRing() {
+		this.Ring=true;
 	}
 	 
 	/*
@@ -81,7 +87,7 @@ public class Player {
 	 * 
 	 */
 	public Items getItem(){
-		Items testitem = new Tools("spaden",23.0);
+		Items testitem = new Tools("spaden",23.0, 0);
 		return testitem;
 	}
 	public int getHealth() {
@@ -99,12 +105,12 @@ public class Player {
 		if (command.equals("items")){
 			System.out.print("These are your precious items: ");
 			for(int i=0;i<spelare.currentItems.size();i++){
-				System.out.println(spelare.currentItems.get(i).getItemName(spelare.currentItems.get(i)));
-				
+				System.out.println(spelare.currentItems.get(i).getItemName(spelare.currentItems.get(i)));				
 			}
-				
+	
 		}
 	}
+	
 
 }
 

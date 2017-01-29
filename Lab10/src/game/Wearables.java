@@ -4,21 +4,28 @@ import game.Player;
 
 public class Wearables extends Items {
 
-	private int healthInc;
-
 	public Wearables(String name, Double weight, int healthInc) {
-		super(name, weight);
-		this.healthInc = healthInc;
+		super(name, weight, healthInc);
 	}
-	
-	public void putOn(Player user) {
-		user.setWearable(this);
-		user.changeHealth(this.healthInc);
-	}
-	
+
 	public boolean doCommand(String action, Player user) {
-		return true;
-	
+		String[] Split = action.split("\\ ");
+		if (Split[0].equals("wear")) {
+			if (Split.length == 2) {
+				if (Split[1].equals("elven_robe")) {
+					user.setJacket();
+					user.changeHealth(user.getPlayerWears(Split[1]).getHealthDiff());
+					return true;
+				}
+				else if (Split[1].equals("The Ring")) {
+					user.setRing();
+					user.changeHealth(user.getPlayerWears(Split[1]).getHealthDiff());
+					return true;
+				}
+			}
+		}
+
+		return false;
 	}
 }
 

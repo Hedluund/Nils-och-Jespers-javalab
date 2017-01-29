@@ -8,7 +8,7 @@ public class Room extends Location {
 	String Brightness;
 	private static String directions[] = { "north", "east", "south", "west" };
 
-	public Room(String name, String description, String description2, String Brightness ) {
+	public Room(String name, String description, String description2, String Brightness) {
 		super(name, description, description2);
 		this.Brightness = Brightness;
 	}

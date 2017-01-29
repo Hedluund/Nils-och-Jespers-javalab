@@ -51,7 +51,7 @@ public abstract class Location {
 	}
 	
 	public void digHere() {
-		this.haveDugHere=true;
+		haveDugHere=true;
 	}
 	
 	public boolean haveIDugHere() {
