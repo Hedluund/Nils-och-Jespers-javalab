@@ -12,13 +12,16 @@ public class Player {
 	private boolean Jacket;
 	private boolean Ring;
 	private ArrayList<Items> currentItems = new ArrayList<Items>();
-	private Boolean TorchLit;
+	private Boolean TorchLit=false;
 
 	public Player(String newName) {
 		this.name = newName;
+		Items shovel = new Tools("shovel", 10.0, 0);
+		Items torch = new Tools("torch", 2.0, 0);
+		currentItems.add(torch);
+		currentItems.add(shovel);
 	}
 	
-
 	 public Items getPlayerWears(String item){
 		for(int i =0; i < currentItems.size(); i++) {
 			if (this.currentItems.get(i).getItemName(currentItems.get(i)).equals(item)) {
@@ -29,8 +32,12 @@ public class Player {
 	}
 	 
 	
-	public void LightTorch() {
-		this.TorchLit = true;
+	public void LightTorch(Boolean val) {
+		this.TorchLit = val;
+	}
+	
+	public boolean isLit() {
+		return this.TorchLit;
 	}
 	
 	public void setJacket() {
@@ -53,6 +60,14 @@ public class Player {
 	}
 	public int getGold(){
 		return this.Gold;
+	}
+	
+	public Items getCurrentItems(int i){
+		return currentItems.get(i);
+	}
+	
+	public int getListLength() {
+		return currentItems.size();
 	}
 	
 
@@ -86,10 +101,8 @@ public class Player {
 	/*
 	 * 
 	 */
-	public Items getItem(){
-		Items testitem = new Tools("spaden",23.0, 0);
-		return testitem;
-	}
+
+	
 	public int getHealth() {
 		return this.health;
 	}
