@@ -81,6 +81,9 @@ public abstract class Location {
 	public void getLocname() {
 		System.out.println(name);
 	}
+	public String getStringName(){
+		return name;
+	}
 	
 	
 	public boolean doCommand(String command, Player spelare){
@@ -93,6 +96,8 @@ public abstract class Location {
 			}
 			System.out.println("Other possible commands: ");
 			System.out.println("items");
+			System.out.println("gold");
+			System.out.println("health");
 			if (spelare.getLoc().possibleCommandDig()){
 				System.out.println("dig");
 			}
@@ -101,11 +106,28 @@ public abstract class Location {
 			System.out.println(this.description);
 			return true;
 		}else if (command.equals("dig") && spelare.getLoc().possibleCommandDig()){
-			System.out.println("Du är en grävling");
+			if (spelare.getLoc().getStringName().equals("Forbidden Forest")){
+				System.out.println("You found a treasure, your gold is increasd by 13");
+				spelare.getLoc().digHere();
+				spelare.changeGold(13);
+			}else if (spelare.getLoc().getStringName().equals("Mount Doom")){
+				System.out.println("Only a fool would try to dig in Mount Doom, you lost 1 health!");
+				spelare.getLoc().digHere();
+				spelare.changeHealth(-1);
+			}else {
+			System.out.println("You dug a hole,it's empty but you burned 666 calories. One hell of a workout");
 			spelare.getLoc().digHere();
+			}
 			return true;
-		}
+		}else if (command.equals("gold")){
+			System.out.println("You have got " + spelare.getGold() + " gold!");
+			return true;			
+		}else if(command.equals("health")){
+			System.out.println("Right now you have got " + spelare.getHealth()+" health");
+			return true;
+		}else{
 		return false;
+		}
 	}
 	public void describeYourself() {
 		if (this.beenhere !=true) {

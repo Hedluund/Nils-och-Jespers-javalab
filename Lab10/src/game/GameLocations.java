@@ -21,8 +21,8 @@ public class GameLocations {
 				"Welcome to the captial city of NoJoria, Karakorum. The great Khan Ghengis rules this city with an iron fist. You better watch your tounge!",
 				"Welcome back to Karakorum. The city of the great Khan", "Sunny");
 
-		Location Mountain = new OutdoorsArea("Mt.Doom",
-				"You are standing at the root of Mt.Doom. Some maniacs state that this mountain will devastate the whole kingdom of NoJoria, what if they are right?.....KRASSHHH, BOOOOM!!! You better run, or at least protect yourself!!!",
+		Location Mountain = new OutdoorsArea("Mount Doom",
+				"You are standing at the root of Mount Doom. Some maniacs state that this mountain will devastate the whole kingdom of NoJoria, what if they are right?.....KRASSHHH, BOOOOM!!! You better run, or at least protect yourself!!!",
 				"You are back at Mt.Doom. The flying rocks may harm you", "Fog");
 
 		Location Pub = new Room("MacLaren's Pub",

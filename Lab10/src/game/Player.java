@@ -39,12 +39,16 @@ public class Player {
 	 * �ndrar heatlh
 	 * 
 	 */
-	public void changeHealth(int dmg) {
-		this.health = this.health + dmg;
+	public void changeHealth(int difference) {
+		this.health = this.health + difference;
 		if (health < 0) {
 			health = 0;
 		}
 	}
+	public int getGold(){
+		return this.Gold;
+	}
+	
 
 	public String getName() {
 		return this.name;
