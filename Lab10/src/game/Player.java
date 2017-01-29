@@ -93,6 +93,7 @@ public class Player {
 	public int getHealth() {
 		return this.health;
 	}
+	
 
 	/*
 	 * vid �ndring av guld. ex r�n eller shopping
@@ -114,6 +115,9 @@ public class Player {
 			}else if(command.equals("health")){
 				System.out.println("Right now you have got " + spelare.getHealth()+" health");
 				return true;
+			}else if(command.contains("take")){
+				
+		
 				
 		}else{
 			return false;

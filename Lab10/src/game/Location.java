@@ -84,6 +84,18 @@ public abstract class Location {
 	public String getStringName(){
 		return name;
 	}
+	/*
+	public boolean checkItemPickup(String UserInput){
+		String[] Split = UserInput.split("\\ ");
+		if (Split.length==2 && (Split[0].equals("take")){
+				for (int i=0; i<this.LocationItems.size();i++){
+					if 
+				}
+			}
+				
+			
+		}
+	}*/
 	
 	
 	public boolean doCommand(String command, Player spelare){
