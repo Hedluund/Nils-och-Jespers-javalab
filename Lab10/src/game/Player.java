@@ -101,16 +101,24 @@ public class Player {
 		this.Gold = this.Gold + change;
 		
 	}
-	public void doCommand(String command,Player spelare){
+	public boolean doCommand(String command,Player spelare){
 		if (command.equals("items")){
 			System.out.print("These are your precious items: ");
 			for(int i=0;i<spelare.currentItems.size();i++){
 				System.out.println(spelare.currentItems.get(i).getItemName(spelare.currentItems.get(i)));				
 			}
-	
-		}
+			return true;
+			}else if (command.equals("gold")){
+				System.out.println("You have got " + spelare.getGold() + " gold!");
+				return true;			
+			}else if(command.equals("health")){
+				System.out.println("Right now you have got " + spelare.getHealth()+" health");
+				return true;
+				
+		}else{
+			return false;
 	}
-	
+	}
 
 }
 
