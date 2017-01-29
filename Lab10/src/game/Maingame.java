@@ -9,7 +9,6 @@ public class Maingame {
 	private Player MainUser;
 	static Scanner userInput = new Scanner(System.in);
 	private ArrayList<Location> World = new ArrayList<Location>();
-	
 
 	public Maingame(){
 		this.MainUser = createPlayer();

@@ -73,7 +73,18 @@ public class Location {
 	public void getLocname() {
 		System.out.println(name);
 	}
-	
+	public void doCommand(Player Spelare, String command){
+		if (command.equals("help")){
+			for (int i =0;i<4;i++){
+				if (this.paths[i]!=null){
+					System.out.println(directions[i]);
+				}
+			}
+			for(int i =0;i<this.LocationCommands.size();i++){
+				System.out.println(LocationCommands.get(i));
+			}
+		}
+	}
 	public void describeYourself() {
 		if (this.beenhere !=true) {
 			System.out.println(this.description2);
