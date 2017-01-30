@@ -116,13 +116,13 @@ public class Player {
 		return this.health;
 	}
 	
+	
 
 	/*
 	 * vid �ndring av guld. ex r�n eller shopping
 	 */
 	public void changeGold(int change) {
-		this.Gold = this.Gold + change;
-		
+		this.Gold = this.Gold + change;	
 	}
 	public boolean doCommand(String command,Player spelare){
 		if (command.equals("items")){
@@ -137,10 +137,9 @@ public class Player {
 			}else if(command.equals("health")){
 				System.out.println("Right now you have got " + spelare.getHealth()+" health");
 				return true;
-			}else if(command.contains("take")){
-				
-		
-				
+			}else if(spelare.getLoc().itemExist(command)){
+				spelare.currentItems.add(spelare.getLoc().checkItemPickup(command));
+				return true;
 		}else{
 			return false;
 	}

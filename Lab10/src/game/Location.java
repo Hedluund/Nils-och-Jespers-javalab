@@ -89,18 +89,41 @@ public abstract class Location {
 	public String getStringName(){
 		return name;
 	}
-	/*
-	public boolean checkItemPickup(String UserInput){
-		String[] Split = UserInput.split("\\ ");
-		if (Split.length==2 && (Split[0].equals("take")){
-				for (int i=0; i<this.LocationItems.size();i++){
-					if 
-				}
+	
+	public void removeItemFromLoc(Items item){
+		this.LocationItems.remove(item);
+	}
+	
+	
+	 public Items getLocationItems(String item){
+		for(int i =0; i < LocationItems.size(); i++) {
+			if (this.LocationItems.get(i).getItemName(LocationItems.get(i)).equals(item)) {
+				return this.LocationItems.get(i);
 			}
+		} 
+		return null;
+	 }
+	 public boolean itemExist(String item){
+			for(int i =0; i < LocationItems.size(); i++) {
+				if (this.LocationItems.get(i).getItemName(LocationItems.get(i)).equals(item)) {
+					return true;
+				}
+			} 
+			return false;
+		}
+	 
+	
+	public Items checkItemPickup(String UserInput){
+		String[] Split = UserInput.split("\\ ");
+		if (Split.length==2 && Split[0].equals("take") && this.itemExist(Split[1])){
+			this.removeItemFromLoc(this.getLocationItems(UserInput));	 
+			return this.getLocationItems(UserInput);
+		}
+		return null;
+	}
+		
 				
 			
-		}
-	}*/
 	
 	
 	public boolean doCommand(String command, Player spelare){
