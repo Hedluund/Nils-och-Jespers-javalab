@@ -2,6 +2,7 @@ package game;
 
 import game.Player;
 import game.Location;
+import game.Room;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -36,7 +37,7 @@ public class Maingame {
 		Location Castle = new Room("Castle Black",
 				"You are now at Castle Black, the utter defense of NoJoria. Beyond the castle there are creatures that not even your wildest fantasy can picture. The men seems a bit frightenend but hopefully, Lord Commander Snow can found courage in them. ",
 				"You are now at Castle Black. Lord Snow seems a bit worried about the loyalty of his men. ",
-				"The castle is very dark. ");
+				"dark", "");
 
 		Location Hometown = new OutdoorsArea("Karakorum",
 				"Welcome to the captial city of NoJoria, Karakorum. The great Khan Ghengis rules this city with an iron fist. You better watch your tounge!",
@@ -48,7 +49,7 @@ public class Maingame {
 
 		Location Pub = new Room("MacLaren's Pub",
 				"Welcome to MacLaren's Pub! Here you can enjoy our famous Cinnamon Bun. It will literary turn your world upside down",
-				"You are back at MacLaren's Pub. Please, have a seat and enjoy something from the bar", "Light");
+				"You are back at MacLaren's Pub. Please, have a seat and enjoy something from the bar", "Light", null);
 		
 		Items elven_robe = new Wearables("elven_robe", 10.0, 5);
 		Items medic_kit = new Tools("medic_kit", 1.0, 5);
@@ -110,7 +111,7 @@ public class Maingame {
 	private void Run(Maingame gamefield) {
 		String command = "hej";
 		while (!command.equals("exit")) {
-			gamefield.MainUser.getLoc().describeYourself();
+			gamefield.MainUser.getLoc().describeYourself(gamefield.MainUser);
 			System.out.println("What do you want to do?");
 			boolean check = false;
 			while (!check) {

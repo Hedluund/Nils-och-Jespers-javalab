@@ -1,4 +1,4 @@
-package game;
+/*package game;
 
 import game.Location;
 
@@ -45,4 +45,4 @@ public class GameLocations {
 
 	}
 
-}
+}*/

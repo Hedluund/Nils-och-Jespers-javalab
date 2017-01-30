@@ -10,7 +10,6 @@ public class Tools extends Items {
 		String[] Split = action.split("\\ ");
 		if (action.equals("light torch") && !user.isLit()) {
 			user.LightTorch(true);
-			System.out.println("Ljuuuuuuuuuus");
 			return true;
 		}
 		

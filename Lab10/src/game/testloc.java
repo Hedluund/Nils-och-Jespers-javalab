@@ -1,4 +1,4 @@
-package game;
+/*package game;
 import game.Location;
 
 public class testloc {
@@ -13,8 +13,7 @@ public class testloc {
 		Mount.setPaths(Mount, null, Hell, null);
 	
 	
-	Hell.describeYourself();
-	Mount.describeYourself();
+
 	
 }
-}
+}*/

@@ -8,7 +8,6 @@ public abstract class Location {
 	private String description2;
 	private Location[] paths = new Location[4];
 	private static String directions[] = { "north", "east", "south", "west" };
-	private ArrayList<String> LocationCommands = new ArrayList<String>();
 	private ArrayList<Items> LocationItems = new ArrayList<Items>();
 	private boolean beenhere = true;
 	private boolean canDigHere;
@@ -157,17 +156,6 @@ public abstract class Location {
 		return false;
 		}
 	}
-	public void describeYourself() {
-		if (this.beenhere !=true) {
-			System.out.println(this.description2);
-		} else {
-			System.out.println(this.description);
-		}
-
-		for (int i = 0; i < paths.length; i++) {
-			if (paths[i] != null) {
-				System.out.println("There is a path leading " + directions[i]);
-			}
-		}
-	}
+	public abstract void describeYourself(Player user);
+	
 }
