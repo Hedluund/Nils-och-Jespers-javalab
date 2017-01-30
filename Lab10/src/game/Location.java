@@ -135,11 +135,15 @@ public abstract class Location {
 			}
 			return true;
 		}else if (command.equals("look")) {
-			System.out.println(this.description);
+			describeYourself(spelare);
+			for(int i=0;i<LocationItems.size();i++){
+				System.out.println("These items can be taken: ");
+				System.out.println(LocationItems.get(i).getItemName(LocationItems.get(i)));				
+			}
 			return true;
 		}else if (command.equals("dig") && spelare.getLoc().possibleCommandDig()){
 			if (spelare.getLoc().getStringName().equals("Forbidden Forest")){
-				System.out.println("You found a treasure, your gold is increasd by 13");
+				System.out.println("You found a treasure, you found 13 goldcoins");
 				spelare.getLoc().digHere();
 				spelare.changeGold(13);
 			}else if (spelare.getLoc().getStringName().equals("Mount Doom")){

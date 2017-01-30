@@ -12,13 +12,13 @@ public class Wearables extends Items {
 		String[] Split = action.split("\\ ");
 		if (Split[0].equals("wear")) {
 			if (Split.length == 2) {
-				if (Split[1].equals("elven_robe")) {
+				if (Split[1].equals("elven_robe") && !user.isJacketOn()) {
 					user.setJacket();
 					user.changeHealth(user.getPlayerItems(Split[1]).getHealthDiff());
 					return true;
 				}
-				else if (Split[1].equals("The_Ring")) {
-					System.out.println("en ring på fingret");
+				else if (Split[1].equals("The_Ring") && user.isRingOn()) {
+					System.out.println("en ring pÃ¥ fingret");
 					user.setRing();
 					user.changeHealth(user.getPlayerItems(Split[1]).getHealthDiff());
 					return true;

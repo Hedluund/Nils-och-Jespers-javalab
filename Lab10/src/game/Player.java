@@ -9,8 +9,8 @@ public class Player {
 	private int health = 10;
 	private Location currentlocation;
 	private int Gold = 100;
-	private boolean Jacket;
-	private boolean Ring;
+	private boolean Jacket=false;
+	private boolean Ring=false;
 	private ArrayList<Items> currentItems = new ArrayList<Items>();
 	private Boolean TorchLit=false;
 
@@ -44,17 +44,25 @@ public class Player {
 	public void LightTorch(Boolean val) {
 		this.TorchLit = val;
 	}
-	
+
 	public boolean isLit() {
 		return this.TorchLit;
 	}
-	
+
 	public void setJacket() {
-		this.Jacket=true;
+		this.Jacket = true;
+		}
+	
+	public boolean isJacketOn() {
+		return this.Jacket;
+	}
+
+	public void setRing() {
+		this.Ring = true;
 	}
 	
-	public void setRing() {
-		this.Ring=true;
+	public boolean isRingOn() {
+		return this.Ring;
 	}
 	 
 	/*
@@ -126,7 +134,7 @@ public class Player {
 	}
 	public boolean doCommand(String command,Player spelare){
 		if (command.equals("items")){
-			System.out.print("These are your precious items: ");
+			System.out.println("These are your precious items: ");
 			for(int i=0;i<spelare.currentItems.size();i++){
 				System.out.println(spelare.currentItems.get(i).getItemName(spelare.currentItems.get(i)));				
 			}

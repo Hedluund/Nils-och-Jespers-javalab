@@ -7,5 +7,6 @@ public class Monster extends NPC {
 		super(name, health, item);
 		this.dmg=dmg;
 	}
+	
 
 }
