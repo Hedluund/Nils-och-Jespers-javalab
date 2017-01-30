@@ -14,12 +14,12 @@ public class Wearables extends Items {
 			if (Split.length == 2) {
 				if (Split[1].equals("elven_robe")) {
 					user.setJacket();
-					user.changeHealth(user.getPlayerWears(Split[1]).getHealthDiff());
+					user.changeHealth(user.getPlayerItems(Split[1]).getHealthDiff());
 					return true;
 				}
 				else if (Split[1].equals("The Ring")) {
 					user.setRing();
-					user.changeHealth(user.getPlayerWears(Split[1]).getHealthDiff());
+					user.changeHealth(user.getPlayerItems(Split[1]).getHealthDiff());
 					return true;
 				}
 			}

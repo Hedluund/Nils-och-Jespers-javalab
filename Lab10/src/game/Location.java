@@ -23,6 +23,10 @@ public abstract class Location {
 		this.description2 = description2;
 	}
 	
+	public void setLocationItem(Items item) {
+		LocationItems.add(item);
+	}
+	
 
 	public void setPaths(Location north, Location east, Location south, Location west) {
 		this.paths[0] = north;
@@ -81,6 +85,7 @@ public abstract class Location {
 	public void getLocname() {
 		System.out.println(name);
 	}
+	
 	public String getStringName(){
 		return name;
 	}

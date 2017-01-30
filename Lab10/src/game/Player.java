@@ -22,7 +22,7 @@ public class Player {
 		currentItems.add(shovel);
 	}
 	
-	 public Items getPlayerWears(String item){
+	 public Items getPlayerItems(String item){
 		for(int i =0; i < currentItems.size(); i++) {
 			if (this.currentItems.get(i).getItemName(currentItems.get(i)).equals(item)) {
 				return this.currentItems.get(i);
@@ -30,6 +30,15 @@ public class Player {
 		} 
 		return null;
 	}
+	 
+	 public boolean itemExist(String item){
+			for(int i =0; i < currentItems.size(); i++) {
+				if (this.currentItems.get(i).getItemName(currentItems.get(i)).equals(item)) {
+					return true;
+				}
+			} 
+			return false;
+		}
 	 
 	
 	public void LightTorch(Boolean val) {
