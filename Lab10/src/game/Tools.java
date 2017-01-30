@@ -7,12 +7,17 @@ public class Tools extends Items {
 	}
 
 	public boolean doCommand(String action, Player user) {
+		String[] Split = action.split("\\ ");
 		if (action.equals("light torch") && !user.isLit()) {
 			user.LightTorch(true);
 			System.out.println("Ljuuuuuuuuuus");
 			return true;
 		}
-			return false;
-	}	
+		
+		else if (Split[0].equals("use") && user.itemExist(Split[1])){
+			user.changeHealth(user.getPlayerItems(Split[1]).getHealthDiff());
+		}
+		return false;
+	}
 
 }

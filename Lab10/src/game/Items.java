@@ -11,6 +11,7 @@ public abstract class Items {
 	public Items(String name, double weight, int healthInc) {
 		this.name = name;
 		this.weight = weight;
+		this.healthInc=healthInc;
 	}
 	
 	public String getItemName(Items item) {

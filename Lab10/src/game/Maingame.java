@@ -49,12 +49,20 @@ public class Maingame {
 		Location Pub = new Room("MacLaren's Pub",
 				"Welcome to MacLaren's Pub! Here you can enjoy our famous Cinnamon Bun. It will literary turn your world upside down",
 				"You are back at MacLaren's Pub. Please, have a seat and enjoy something from the bar", "Light");
+		
+		Items elven_robe = new Wearables("elven_robe", 10.0, 5);
+		Items medic_kit = new Tools("medic_kit", 1.0, 5);
+		Items Ring = new Wearables("The Ring", 0.5, 0);
 
 		Forest.setPaths(Castle, null, Mountain, Hometown);
 		Castle.setPaths(null, Forest, Hometown, Pub);
 		Hometown.setPaths(Castle, Forest, Mountain, Pub);
 		Mountain.setPaths(Hometown, Forest, null, null);
 		Pub.setPaths(Castle, Hometown, null, null);
+		
+		Forest.setLocationItem(elven_robe);
+		Castle.setLocationItem(medic_kit);
+		Mountain.setLocationItem(Ring);
 
 		World.add(Hometown);
 		World.add(Castle);
@@ -78,8 +86,11 @@ public class Maingame {
 		String command = userInput.nextLine();
 		boolean LocCom = User.getLoc().doCommand(command, User);
 		LocCom=User.doCommand(command, User);
-		for(int i = 0; i < User.getListLength(); i++){
-		User.getCurrentItems(i).doCommand(command, User);
+		boolean itemUsed=false;
+		int i = 0;
+		while(!itemUsed && i<User.getListLength()){
+		itemUsed=User.getCurrentItems(i).doCommand(command, User);
+		i++;
 		}
 		int checker = User.getLoc().checkPaths(command,User.getLoc());
 		if (checker!=4 && !LocCom){
