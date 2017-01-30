@@ -23,7 +23,7 @@ public class OutdoorsArea extends Location {
 		this.haveDugHere=true;
 	}
 
-	public void describeYourself() {
+	public void describeYourself(Player user) {
 		if (getBeenhere()) {
 			System.out.println(getDescription() + " Current weather: " + this.weather);
 		} else {
