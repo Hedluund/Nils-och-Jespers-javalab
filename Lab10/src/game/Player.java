@@ -137,9 +137,21 @@ public class Player {
 			}else if(command.equals("health")){
 				System.out.println("Right now you have got " + spelare.getHealth()+" health");
 				return true;
-			}else if(spelare.getLoc().itemExist(command)){
-				spelare.currentItems.add(spelare.getLoc().checkItemPickup(command));
-				return true;
+			}else if(command.contains("take")){
+				String[] Split = command.split("\\ ");
+				if (Split.length==2 && Split[0].equals("take") && spelare.getLoc().itemExist(Split[1])){
+					if (Split[1].equals("The_Ring")){
+						System.out.println("you have found The one and only ring in this game. Great job");
+					}else if(Split[1].equals("elven_robe")){
+						System.out.println("You now own a robe");
+					}else if(Split[1].equals("medic_kit")){
+						System.out.println("It is a medic kit, wohooooo o o");
+					}
+					spelare.currentItems.add(spelare.currentlocation.getItem());
+					spelare.getLoc().removeItemFromLoc();
+					return true;				
+				}
+				return false;
 		}else{
 			return false;
 	}

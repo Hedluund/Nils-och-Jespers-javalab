@@ -17,7 +17,8 @@ public class Wearables extends Items {
 					user.changeHealth(user.getPlayerItems(Split[1]).getHealthDiff());
 					return true;
 				}
-				else if (Split[1].equals("The Ring")) {
+				else if (Split[1].equals("The_Ring")) {
+					System.out.println("en ring på fingret");
 					user.setRing();
 					user.changeHealth(user.getPlayerItems(Split[1]).getHealthDiff());
 					return true;

@@ -52,7 +52,7 @@ public class Maingame {
 		
 		Items elven_robe = new Wearables("elven_robe", 10.0, 5);
 		Items medic_kit = new Tools("medic_kit", 1.0, 5);
-		Items Ring = new Wearables("The Ring", 0.5, 0);
+		Items Ring = new Wearables("The_Ring", 0.5, 0);
 
 		Forest.setPaths(Castle, null, Mountain, Hometown);
 		Castle.setPaths(null, Forest, Hometown, Pub);

@@ -90,8 +90,8 @@ public abstract class Location {
 		return name;
 	}
 	
-	public void removeItemFromLoc(Items item){
-		this.LocationItems.remove(item);
+	public void removeItemFromLoc(){
+		this.LocationItems.remove(0);
 	}
 	
 	
@@ -111,16 +111,9 @@ public abstract class Location {
 			} 
 			return false;
 		}
-	 
-	
-	public Items checkItemPickup(String UserInput){
-		String[] Split = UserInput.split("\\ ");
-		if (Split.length==2 && Split[0].equals("take") && this.itemExist(Split[1])){
-			this.removeItemFromLoc(this.getLocationItems(UserInput));	 
-			return this.getLocationItems(UserInput);
+		public Items getItem(){
+			return this.LocationItems.get(0);
 		}
-		return null;
-	}
 		
 				
 			

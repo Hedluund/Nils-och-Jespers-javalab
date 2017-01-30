@@ -16,6 +16,7 @@ public class Tools extends Items {
 		
 		else if (Split[0].equals("use") && user.itemExist(Split[1])){
 			user.changeHealth(user.getPlayerItems(Split[1]).getHealthDiff());
+			return true;
 		}
 		return false;
 	}
