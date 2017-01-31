@@ -26,6 +26,11 @@ public class Room extends Location {
 
 	public void describeYourself(Player user) {
 		if (user.isLit() && Brightness.equals("dark")) {
+			if (getBeenhere()) {
+				System.out.println(getDescription());
+			} else {
+				System.out.println(getDescription2());
+			}
 			System.out.println("The torch lights up the room. " + this.torchDescription);
 		} else {
 			if (getBeenhere()) {
@@ -33,6 +38,10 @@ public class Room extends Location {
 			} else {
 				System.out.println(getDescription2() + "Sight: " + Brightness);
 			}
+		}
+		System.out.println("These items can be taken: ");
+		for(int i=0;i< user.getLoc().getLocItemList().size();i++){
+			System.out.println(user.getLoc().getSpecLocItem(i).getItemName(getLocItemList().get(i)));				
 		}
 		
 		for (int i = 0; i < getPaths().length; i++) {

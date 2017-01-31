@@ -29,6 +29,20 @@ public class OutdoorsArea extends Location {
 		} else {
 			System.out.println(getDescription2() + " Current weather: " + this.weather);
 		}
+		
+		if (user.getLoc().getNPC().size() > 0){
+		if(user.getLoc().getNPC().get(0).getNPCname().equals("Boar")){
+		System.out.println("It is a huge Boar guarding some necessary equipment, hope you have something to kill it with.");
+	
+		}
+		
+		}else{
+			System.out.println("These items can be taken: "); 
+		for(int i=0;i< user.getLoc().getLocItemList().size();i++){
+			System.out.println(user.getLoc().getSpecLocItem(i).getItemName(getLocItemList().get(i)));				
+		}
+		}
+		
 		for (int i = 0; i < getPaths().length; i++) {
 			if (getPaths()[i] != null) {
 				System.out.println("There is a road leading " + directions[i]);

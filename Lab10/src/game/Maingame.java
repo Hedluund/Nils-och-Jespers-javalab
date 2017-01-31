@@ -30,17 +30,23 @@ public class Maingame {
 	public ArrayList<Location> setWorld() {
 
 		Location Forest = new OutdoorsArea("Forbidden Forest",
-				"You are now in the Forbidden Forest. The legend says that the trees in this forest get their strength from the suffering of the thousand men who have lost their lives here",
+				"You are now in the Forbidden Forest. "
+				+ "The legend says that the trees in this forest get their strength from the suffering of the thousand men who have lost their lives here",
 				"Welcome back to the Forbidden Forest, hmm, you get a really strange feeling that the trees seems to be talking. ",
 				"Misty");
 
 		Location Castle = new Room("Castle Black",
-				"You are now at Castle Black, the utter defense of NoJoria. Beyond the castle there are creatures that not even your wildest fantasy can picture. The men seems a bit frightenend but hopefully, Lord Commander Snow can found courage in them. ",
+				"You are now at Castle Black, the utter defense of NoJoria. "
+				+ "Beyond the castle there are creatures that not even your wildest fantasy can picture. "
+				+ "The men seems a bit frightenend but hopefully, Lord Commander Snow can found courage in them. ",
 				"You are now at Castle Black. Lord Snow seems a bit worried about the loyalty of his men. ",
-				"dark", "");
+				"dark", "The light attracts the attention of a White Walker and the men panics. "
+						+ "One of them manages to cut it but it didn't have any effect at all."
+						+ " Maybe you need som kind of special weapon?");
 
 		Location Hometown = new OutdoorsArea("Karakorum",
-				"Welcome to the captial city of NoJoria, Karakorum. The great Khan Ghengis rules this city with an iron fist. You better watch your tounge!",
+				"Welcome to the captial city of NoJoria, Karakorum. "
+				+ "The great Khan Ghengis rules this city with an iron fist. You better watch your tounge!",
 				"Welcome back to Karakorum. The city of the great Khan", "Sunny");
 
 		Location Mountain = new OutdoorsArea("Mount Doom",
@@ -48,12 +54,19 @@ public class Maingame {
 				"You are back at Mt.Doom. The flying rocks may harm you", "Fog");
 
 		Location Pub = new Room("MacLaren's Pub",
-				"Welcome to MacLaren's Pub! Here you can enjoy our famous Cinnamon Bun. It will literary turn your world upside down",
+				"Welcome to MacLaren's Pub! Here you can enjoy our famous Cinnamon Bun. "
+				+ "It will literary turn your world upside down",
 				"You are back at MacLaren's Pub. Please, have a seat and enjoy something from the bar", "Light", null);
 		
 		Items elven_robe = new Wearables("elven_robe", 10.0, 5);
-		Items medic_kit = new Tools("medic_kit", 1.0, 5);
+		Items medic_kit = new Tools("medic_kit", 1.0, 2);
 		Items Ring = new Wearables("The_Ring", 0.5, 0);
+		Items Spear = new Weapons("Hunting_Spear", 10.0, 0, 10);
+		Items dragon_glass = new Weapons("dragon_glass", 0.5, 0, 2);
+		
+		NPC beggar = new Person("beggar", 2, dragon_glass, 0, "Pleeease, some money for the poor one");
+		NPC Boar = new Monster("Boar", 20, 20, 3);
+		NPC WhiteWalker = new Monster("White_walker", 500, 500, 1000);
 
 		Forest.setPaths(Castle, null, Mountain, Hometown);
 		Castle.setPaths(null, Forest, Hometown, Pub);
@@ -62,8 +75,13 @@ public class Maingame {
 		Pub.setPaths(Castle, Hometown, null, null);
 		
 		Forest.setLocationItem(elven_robe);
-		Castle.setLocationItem(medic_kit);
+		Forest.setLocationItem(medic_kit);
 		Mountain.setLocationItem(Ring);
+		Mountain.setLocationItem(Spear);
+		
+		Forest.setLocationNPC(Boar);
+		Pub.setLocationNPC(beggar);
+		Castle.setLocationNPC(WhiteWalker);
 
 		World.add(Hometown);
 		World.add(Castle);
@@ -87,6 +105,9 @@ public class Maingame {
 		String command = userInput.nextLine();
 		boolean LocCom = User.getLoc().doCommand(command, User);
 		LocCom=User.doCommand(command, User);
+		if(User.getLoc().getNPC().size() > 0){
+			LocCom=User.getLoc().getNPC().get(0).doCommand(command, User);
+		}
 		boolean itemUsed=false;
 		int i = 0;
 		while(!itemUsed && i<User.getListLength()){
@@ -109,7 +130,7 @@ public class Maingame {
 	// public Player getPlayer()
 
 	private void Run(Maingame gamefield) {
-		String command = "hej";
+		String command = "start";
 		while (!command.equals("exit")) {
 			gamefield.MainUser.getLoc().describeYourself(gamefield.MainUser);
 			System.out.println("What do you want to do?");
@@ -121,7 +142,6 @@ public class Maingame {
 				}
 			}
 		}
-
 	}
 
 	public static void main(String[] args) {

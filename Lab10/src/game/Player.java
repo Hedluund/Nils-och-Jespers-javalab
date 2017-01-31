@@ -13,6 +13,8 @@ public class Player {
 	private boolean Ring=false;
 	private ArrayList<Items> currentItems = new ArrayList<Items>();
 	private Boolean TorchLit=false;
+	private int PlayerDmg = 0;
+
 
 	public Player(String newName) {
 		this.name = newName;
@@ -55,6 +57,18 @@ public class Player {
 	
 	public boolean isJacketOn() {
 		return this.Jacket;
+	}
+	
+	public void setPlayerDmg(int dmg) {
+		this.PlayerDmg=dmg;
+	}
+	
+	public void setHealth(int val) {
+		this.health=val;
+	}
+	
+	public int getPlayerDmg() {
+		return this.PlayerDmg;
 	}
 
 	public void setRing() {
@@ -141,9 +155,13 @@ public class Player {
 			return true;
 			}else if (command.equals("gold")){
 				System.out.println("You have got " + spelare.getGold() + " gold!");
+				System.out.println(PlayerDmg);
 				return true;			
 			}else if(command.equals("health")){
 				System.out.println("Right now you have got " + spelare.getHealth()+" health");
+				return true;
+			}else if(command.equals("dmg")) {
+				System.out.println(this.PlayerDmg);
 				return true;
 			}else if(command.contains("take")){
 				String[] Split = command.split("\\ ");
@@ -155,8 +173,9 @@ public class Player {
 					}else if(Split[1].equals("medic_kit")){
 						System.out.println("It is a medic kit, wohooooo o o");
 					}
-					spelare.currentItems.add(spelare.currentlocation.getItem());
-					spelare.getLoc().removeItemFromLoc();
+					
+					spelare.currentItems.add(spelare.currentlocation.getItem(spelare.getLoc().itemNr(Split[1])));
+					spelare.getLoc().removeItemFromLoc(spelare.getLoc().getItem(spelare.getLoc().itemNr(Split[1])));
 					return true;				
 				}
 				return false;

@@ -1,16 +1,18 @@
 package game;
 
-public class NPC {
+public abstract class NPC {
 	
 	private String name;
-	private int health;
-	private Items item;
 	
-	
-	public NPC(String name, int health, Items item){
+	public NPC(String name){
 		this.name=name;
-		this.health=health;
-		this.item=item;
 	}
+	
+	public String getNPCname() {
+		return this.name;
+	}
+	
+	public abstract boolean doCommand(String action, Player user);
+
 
 }

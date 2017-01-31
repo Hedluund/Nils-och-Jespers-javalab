@@ -9,9 +9,11 @@ public abstract class Location {
 	private Location[] paths = new Location[4];
 	private static String directions[] = { "north", "east", "south", "west" };
 	private ArrayList<Items> LocationItems = new ArrayList<Items>();
-	private boolean beenhere = true;
+	private boolean notbeenhere = true;
 	private boolean canDigHere;
 	private boolean haveDugHere;
+	private ArrayList<NPC> LocationNPC = new ArrayList<NPC>();
+	private boolean NPCexist=false;
 	
 	public abstract boolean possibleCommandDig();
 	
@@ -23,7 +25,7 @@ public abstract class Location {
 	}
 	
 	public void setLocationItem(Items item) {
-		LocationItems.add(item);
+		this.LocationItems.add(item);
 	}
 	
 
@@ -37,6 +39,14 @@ public abstract class Location {
 	
 	public Location[] getPaths() {
 		return paths;
+	}
+	
+	public void setLocationNPC(NPC npc) {
+		LocationNPC.add(npc);
+	}
+	
+	public boolean doNPCexist() {
+		return this.NPCexist;
 	}
 	
 	public int checkPaths(String answer, Location location){
@@ -66,11 +76,11 @@ public abstract class Location {
 	}
 	
 	public void setBeenhere() {
-		this.beenhere = false;
+		this.notbeenhere = false;
 	}
 	
 	public boolean getBeenhere(){
-		return beenhere;
+		return notbeenhere;
 	}
 	
 	public String getDescription() {
@@ -89,8 +99,8 @@ public abstract class Location {
 		return name;
 	}
 	
-	public void removeItemFromLoc(){
-		this.LocationItems.remove(0);
+	public void removeItemFromLoc(Items item){
+		this.LocationItems.remove(item);
 	}
 	
 	
@@ -102,19 +112,34 @@ public abstract class Location {
 		} 
 		return null;
 	 }
+	 
 	 public boolean itemExist(String item){
 			for(int i =0; i < LocationItems.size(); i++) {
-				if (this.LocationItems.get(i).getItemName(LocationItems.get(i)).equals(item)) {
+				if (this.getLocationItems(item).getItemName(getLocationItems(item)).equals(item)) {
 					return true;
 				}
 			} 
 			return false;
 		}
-		public Items getItem(){
-			return this.LocationItems.get(0);
+	 
+	 public int itemNr(String item){
+			for(int i =0; i < LocationItems.size(); i++) {
+				if (this.LocationItems.get(i).getItemName(LocationItems.get(i)).equals(item)) {
+					return i;
+				}
+			} 
+			return -1;
+		}
+	 
+	 
+	 
+		public Items getItem(int i){
+			return this.LocationItems.get(i);
 		}
 		
-				
+		public ArrayList<NPC> getNPC() {
+			return LocationNPC;
+		}
 			
 	
 	
@@ -130,16 +155,13 @@ public abstract class Location {
 			System.out.println("items");
 			System.out.println("gold");
 			System.out.println("health");
+			System.out.println("dmg");
 			if (spelare.getLoc().possibleCommandDig()){
 				System.out.println("dig");
 			}
 			return true;
 		}else if (command.equals("look")) {
 			describeYourself(spelare);
-			for(int i=0;i<LocationItems.size();i++){
-				System.out.println("These items can be taken: ");
-				System.out.println(LocationItems.get(i).getItemName(LocationItems.get(i)));				
-			}
 			return true;
 		}else if (command.equals("dig") && spelare.getLoc().possibleCommandDig()){
 			if (spelare.getLoc().getStringName().equals("Forbidden Forest")){
@@ -161,5 +183,15 @@ public abstract class Location {
 		}
 	}
 	public abstract void describeYourself(Player user);
+
+
+	public ArrayList<Items> getLocItemList() {
+		return this.LocationItems;
+	}
 	
+	public Items getSpecLocItem(int i) {
+		return this.LocationItems.get(i);
+	} 
+
+
 }
