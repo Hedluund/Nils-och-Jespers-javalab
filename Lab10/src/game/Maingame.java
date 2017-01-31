@@ -7,15 +7,22 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Maingame {
-	private Player MainUser;
 	static Scanner userInput = new Scanner(System.in);
+	private Player MainUser;
 	private ArrayList<Location> World = new ArrayList<Location>();
 	
-
+	/*
+	 * konstruktorn
+	 */
+	
 	public Maingame(){
 		this.MainUser = createPlayer();
 		this.World = setWorld();	
 	}
+	
+	/*
+	 * skapar spelaren
+	 */
 	
 	public Player createPlayer(){
 		System.out.print("Please state your name!");
@@ -26,6 +33,10 @@ public class Maingame {
 		return User;
 
 	}
+	
+	/*
+	 * skapar världen
+	 */
 
 	public ArrayList<Location> setWorld() {
 
@@ -54,15 +65,14 @@ public class Maingame {
 				"You are back at Mt.Doom. The flying rocks may harm you", "Fog");
 
 		Location Pub = new Room("MacLaren's Pub",
-				"Welcome to MacLaren's Pub! Here you can enjoy our famous Cinnamon Bun. "
-				+ "It will literary turn your world upside down",
-				"You are back at MacLaren's Pub. Please, have a seat and enjoy something from the bar", "Light", null);
+				"Welcome to MacLaren's Pub! There is a beggar in the corner. He looks like he needs 113 gold coins. ",
+				"You are back at MacLaren's Pub. The beggar in the corner is in at great need of 113 gold coins. ", "Light", null);
 		
 		Items elven_robe = new Wearables("elven_robe", 10.0, 5);
 		Items medic_kit = new Tools("medic_kit", 1.0, 2);
 		Items Ring = new Wearables("The_Ring", 0.5, 0);
 		Items Spear = new Weapons("Hunting_Spear", 10.0, 0, 10);
-		Items dragon_glass = new Weapons("dragon_glass", 0.5, 0, 2);
+		Items dragon_glass = new Tools("dragon_glass", 0.0, 0);
 		
 		NPC beggar = new Person("beggar", 2, dragon_glass, 0, "Pleeease, some money for the poor one");
 		NPC Boar = new Monster("Boar", 20, 20, 3);
@@ -92,18 +102,24 @@ public class Maingame {
 		return World;
 
 	}	
-	/*
-	 * konstruktorn
-	 */
 	
+	
+	/*
+	 * sätter spelarens startposition
+	 */
 
 	public void setStartLoc(Player User,Location Start){
 		User.setLoc(Start);
 	}
+	
+	/*
+	 * hanterar användarens kommandon
+	 */
 
 	public boolean whatToDo(Player User){	
 		String command = userInput.nextLine();
-		boolean LocCom = User.getLoc().doCommand(command, User);
+		boolean LocCom = new Boolean(false);
+		User.getLoc().doCommand(command, User);
 		LocCom=User.doCommand(command, User);
 		if(User.getLoc().getNPC().size() > 0){
 			LocCom=User.getLoc().getNPC().get(0).doCommand(command, User);
@@ -125,9 +141,9 @@ public class Maingame {
 	}
 
 		
-
-
-	// public Player getPlayer()
+	/*
+	 * kör spelet
+	 */
 
 	private void Run(Maingame gamefield) {
 		String command = "start";
@@ -143,6 +159,10 @@ public class Maingame {
 			}
 		}
 	}
+	
+	/*
+	 * huvudmetoden
+	 */
 
 	public static void main(String[] args) {
 		Maingame spelet = new Maingame();

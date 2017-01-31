@@ -4,26 +4,39 @@ import game.Location;
 import game.Player;
 
 public class Room extends Location {
-	private boolean canDigHere = false;
-	private boolean haveDugHere = false;
+	
+	private static String directions[] = { "north", "east", "south", "west" };
 	private String Brightness;
 	private String torchDescription;
-	private static String directions[] = { "north", "east", "south", "west" };
+	private boolean canDigHere = false;
+
+
+	/*
+	 * konstruktorn
+	 */
 
 	public Room(String name, String description, String description2, String Brightness, String torchDescription) {
 		super(name, description, description2);
 		this.Brightness = Brightness;
-		this.torchDescription=torchDescription;
+		this.torchDescription = torchDescription;
 	}
-	public boolean possibleCommandDig(){
-		if (this.canDigHere){
-			return true;
-		}else{
-				return false;		
-		}
-	} 
-	
 
+	/*
+	 * går det att gräva här?
+	 */
+
+	public boolean possibleCommandDig() {
+		if (this.canDigHere) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/*
+	 * beskriver platsen
+	 */
+	
 	public void describeYourself(Player user) {
 		if (user.isLit() && Brightness.equals("dark")) {
 			if (getBeenhere()) {
@@ -40,10 +53,10 @@ public class Room extends Location {
 			}
 		}
 		System.out.println("These items can be taken: ");
-		for(int i=0;i< user.getLoc().getLocItemList().size();i++){
-			System.out.println(user.getLoc().getSpecLocItem(i).getItemName(getLocItemList().get(i)));				
+		for (int i = 0; i < user.getLoc().getLocItemList().size(); i++) {
+			System.out.println(user.getLoc().getSpecLocItem(i).getItemName(getLocItemList().get(i)));
 		}
-		
+
 		for (int i = 0; i < getPaths().length; i++) {
 			if (getPaths()[i] != null) {
 				System.out.println("There is a door leading " + directions[i]);

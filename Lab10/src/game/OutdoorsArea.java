@@ -2,15 +2,25 @@ package game;
 import game.Location;
 
 public class OutdoorsArea extends Location {
+	
+	private static String directions[] = { "north", "east", "south", "west" };
+	private String weather;
 	private boolean canDigHere = true;
 	private boolean haveDugHere = false;
-	private String weather;
-	private static String directions[] = { "north", "east", "south", "west" };
-
+	
+	/*
+	 * konstruktorn
+	 */
+	
 	public OutdoorsArea(String name, String description, String description2, String weather) {
 		super(name, description, description2);
 		this.weather=weather;
 	}
+	
+	/*
+	 * undersöker möjligheten att gräva
+	 */
+	
 	public boolean possibleCommandDig(){
 		if (this.canDigHere && !this.haveDugHere){
 			return true;
@@ -19,9 +29,17 @@ public class OutdoorsArea extends Location {
 		}
 	}
 	
+	/*
+	 * gräver på platsen
+	 */
+	
 	public void digHere() {
 		this.haveDugHere=true;
 	}
+	
+	/*
+	 * beskriver sig själv
+	 */
 
 	public void describeYourself(Player user) {
 		if (getBeenhere()) {
