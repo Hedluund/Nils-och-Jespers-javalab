@@ -1,4 +1,4 @@
-package lab2Stacks;
+package myutil;
 
 public class Node {
 
