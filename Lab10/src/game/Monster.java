@@ -35,7 +35,7 @@ public class Monster extends NPC {
 
 				if (Split[1].equals("White_walker") && user.isDragonGlass() && user.getPlayerDmg() == 10) {
 					this.health = 0;
-					System.out.println("GRATTIS BROR, du räddade världen");
+					System.out.println("Congratulations, you saved the world of NoJoria");
 					return true;
 				}
 
