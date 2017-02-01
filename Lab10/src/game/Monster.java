@@ -29,7 +29,8 @@ public class Monster extends NPC {
 
 	public boolean doCommand(String action, Player user) {
 		String[] Split = action.split("\\ ");
-		if (Split[0].equals("kill")) {
+		if (Split[0].equals("kill") && Split.length==2){
+			
 			if (user.getLoc().getNPC().size() > 0 && user.getLoc().getNPC().get(0).getNPCname().equals(Split[1])) {
 
 				if (Split[1].equals("White_walker") && user.isDragonGlass() && user.getPlayerDmg() == 10) {

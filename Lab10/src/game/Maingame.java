@@ -61,7 +61,7 @@ public class Maingame {
 				"Welcome back to Karakorum. The city of the great Khan", "Sunny");
 
 		Location Mountain = new OutdoorsArea("Mount Doom",
-				"You are standing at the root of Mount Doom. Some maniacs state that this mountain will devastate the whole kingdom of NoJoria, what if they are right?...../nKRASSHHH, BOOOOM!!! You better run, or at least protect yourself!!!",
+				"You are standing at the root of Mount Doom.\n Some maniacs state that this mountain will devastate the whole kingdom of NoJoria, what if they are right?.....\nKRASSHHH, BOOOOM!!! You better run, or at least protect yourself!!!",
 				"You are back at Mt.Doom. The flying rocks may harm you", "Fog");
 
 		Location Pub = new Room("MacLaren's Pub",
