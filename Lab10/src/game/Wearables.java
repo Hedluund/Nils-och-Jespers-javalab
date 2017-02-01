@@ -27,7 +27,7 @@ public class Wearables extends Items {
 					return true;
 				}
 				else if (Split[1].equals("The_Ring") && !user.isRingOn()) {
-					System.out.println("En fin ring p√• fingret");
+					System.out.println("Ohhh the ring looks fabulous, but it¥s also a burden");
 					user.setRing();
 					user.changeHealth(user.getPlayerItems(Split[1]).getHealthDiff());
 					return true;

@@ -48,7 +48,7 @@ public class Monster extends NPC {
 					System.out.println(" hitpoints left");
 				} else {
 					System.out.println(
-							"You ran away for your life, your health got really low.. You spend the night at the hospital");
+							"You ran away for your life, your health got really low.. You spend the night at the hospital in karakorum and got a lift back by a friendly horsedriver");
 					user.setHealth(10);
 					this.health = this.startHP;
 					return true;

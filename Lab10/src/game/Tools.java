@@ -18,6 +18,7 @@ public class Tools extends Items {
 		String[] Split = action.split("\\ ");
 		if (action.equals("light torch") && !user.isLit()) {
 			user.LightTorch(true);
+			System.out.println("You lit your torch, you can now see at castle black");
 			return true;
 		}
 

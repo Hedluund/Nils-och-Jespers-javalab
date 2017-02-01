@@ -266,15 +266,15 @@ public abstract class Location {
 					System.out.println(directions[i]);
 				}
 			}
-			System.out.println("Other possible commands: ");
-			System.out.println("items");
-			System.out.println("gold");
-			System.out.println("health");
-			System.out.println("dmg");
-			if (spelare.getLoc().possibleCommandDig()) {
+			System.out.println("Other possible commands: \nitems\ngold\nhealth\nlook");
+			System.out.println("wear + (youritem)  if you got any wearables");
+			if (spelare.getLoc().possibleCommandDig()){
 				System.out.println("dig");
 			}
+			System.out.println("If there is a monster and you want to kill it \ntype: kill and the name of your monster");
+			System.out.println("To equip your weapon, type equip");
 			return true;
+			
 		} else if (command.equals("look")) {
 			describeYourself(spelare);
 			return true;

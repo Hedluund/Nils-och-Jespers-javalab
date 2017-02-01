@@ -51,7 +51,7 @@ public class Maingame {
 				+ "Beyond the castle there are creatures that not even your wildest fantasy can picture. "
 				+ "The men seems a bit frightenend but hopefully, Lord Commander Snow can found courage in them. ",
 				"You are now at Castle Black. Lord Snow seems a bit worried about the loyalty of his men. ",
-				"dark", "The light attracts the attention of a White Walker and the men panics. "
+				"dark", "The light attracts the attention of a White_walker and the men panics. "
 						+ "One of them manages to cut it but it didn't have any effect at all."
 						+ " Maybe you need som kind of special weapon?");
 
@@ -61,7 +61,7 @@ public class Maingame {
 				"Welcome back to Karakorum. The city of the great Khan", "Sunny");
 
 		Location Mountain = new OutdoorsArea("Mount Doom",
-				"You are standing at the root of Mount Doom. Some maniacs state that this mountain will devastate the whole kingdom of NoJoria, what if they are right?.....KRASSHHH, BOOOOM!!! You better run, or at least protect yourself!!!",
+				"You are standing at the root of Mount Doom. Some maniacs state that this mountain will devastate the whole kingdom of NoJoria, what if they are right?...../nKRASSHHH, BOOOOM!!! You better run, or at least protect yourself!!!",
 				"You are back at Mt.Doom. The flying rocks may harm you", "Fog");
 
 		Location Pub = new Room("MacLaren's Pub",
