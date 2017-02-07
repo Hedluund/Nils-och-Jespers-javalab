@@ -15,6 +15,12 @@ public class MyQueue<E> {
 	public int size() {
 		return this.size;
 	}
+	
+	private void checkEmptyEx(){
+		if (isEmpty()){
+			throw new EmptyListException();
+		}
+	}
 
 	public void enqueue(E newData) {
 		Last = new Node<>(newData, Last);
@@ -29,6 +35,13 @@ public class MyQueue<E> {
 	}
 
 	public E dequeue() {
+		try {
+			checkEmptyEx();
+		}catch(EmptyListException e){
+			System.out.println("Error: Det finns inget att avköa.");
+			System.exit(1);
+		}
+		
 		if(Last.next == null){
 			E valuelast = Last.data;
 			Last = null;

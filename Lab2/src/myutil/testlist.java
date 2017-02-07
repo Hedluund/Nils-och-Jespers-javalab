@@ -8,7 +8,7 @@ public class testlist {
 		listan.add(7);
 		listan.add(28746);
 		listan.add(3);
-		System.out.println(listan.getElementAt(2));
+		System.out.println(listan.getElementAt(47));
 	}
 
 }

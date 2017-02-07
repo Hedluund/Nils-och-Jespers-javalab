@@ -21,7 +21,14 @@ public class MyList <E>{
 		return size==0;
 	}
 	
+	private void checkSizeEx(int i){
+		if (i >= size() || i < 0){
+			throw new SizeException();
+		}
+	}
+	
 	private E ValueOfPlace(int count, Node<E> listNode){
+	
 		if (count == 0) {
 			return listNode.data;
 		}
@@ -30,6 +37,12 @@ public class MyList <E>{
 	}
 	
 	public E getElementAt(int PlaceInList){
+		try {
+			checkSizeEx(PlaceInList);
+		}catch(SizeException e){
+			System.out.println("Error: Platsen existerar ej i listan");
+			System.exit(1);
+		}
 		return ValueOfPlace(this.size-PlaceInList,this.top);
 	}
 	
